@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 
 import Home from './component/Home';
+import MyProfilePage from './component/MyProfile/MyProfilePage'
 
 function App() {
   
@@ -16,11 +17,14 @@ function App() {
       <div>
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/myPage">My Profile</Link>
+          <Link to="/myProfilePage">My Profile</Link>
         </nav>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home/>
+          </Route>
+          <Route path="/myProfilePage">
+            <MyProfilePage/>
           </Route>
         </Switch>
       </div>
