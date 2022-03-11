@@ -1,5 +1,5 @@
 import React from 'react'
-import '../cssFolder/HomeCss.css'
+import '../cssFolder/Home-style.css'
 
 function Home(){
     const welcomeMessage = "This is the HomePage"
