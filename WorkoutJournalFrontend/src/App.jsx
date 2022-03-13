@@ -15,39 +15,8 @@ import Navbar from './component/Navbar'
 
 
 function App() {
-  
-  // const [counter, setCounter] = useState(0);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCounter((<p>It is {new Date().toLocaleTimeString()}.</p>));
-  //   }, 1000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-    
     return (
       <Navbar/>
-    //   <Router>
-    //   <div>
-    //     <div class="topNav">
-    //       <nav>
-    //         {/* {tick()} */}
-    //         {counter}
-    //         <Link to="/">Home</Link>
-    //         <Link to="/myProfilePage">My Profile</Link>
-    //       </nav>
-    //     </div>
-    //     <Switch>
-    //       <Route exact path="/">
-    //         <Home/>
-    //       </Route>
-    //       <Route path="/myProfilePage">
-    //         <MyProfilePage/>
-    //       </Route>
-    //     </Switch>
-    //   </div>
-    // </Router>
   )
 }
 

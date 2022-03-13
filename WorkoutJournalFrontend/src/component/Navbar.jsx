@@ -10,28 +10,39 @@ import {
 import Home from './Home'
 import MyProfilePage from './MyProfile/MyProfilePage'
 
+
+
 function Navbar(){
-
- const [counter, setCounter] = useState(0);
-
+  
+  
+  const [counter, setCounter] = useState(0);
+  
    useEffect(() => {
      const interval = setInterval(() => {
        setCounter((<p>It is {new Date().toLocaleTimeString()}.</p>));
      }, 1000);
-
+    
      return () => clearInterval(interval);
    }, []);
+  
+   const [visible, setVisible] = React.useState(false);
 
   return(
     <Router>
     <div>
+      {!visible &&
+    <button onClick={() => setVisible(true)}>Login</button>
+      }
+    {visible && 
         <div class="topNav">
-          <nav>
             {counter}
+          <nav>
             <Link to="/">Home</Link>
             <Link to="/myProfilePage">My Profile</Link>
+            <button onClick={() => setVisible(false)}>Log out</button>
           </nav>
         </div>
+      }
         <Switch>
           <Route exact path="/">
             <Home/>
