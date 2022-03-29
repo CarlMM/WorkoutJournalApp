@@ -10,6 +10,7 @@ import {
 import Home from './Home'
 import MyProfilePage from './MyProfile/MyProfilePage'
 import MuscleGroups from './MuscleGroups'
+import SpecificMuscle from './SpecificMuscle'
 
 
 function Navbar(props){
@@ -54,6 +55,9 @@ function Navbar(props){
           </Route>
           <Route path="/muscles">
             <MuscleGroups items={props.items}/>
+          </Route>
+          <Route exact path="/muscles/:id" component={SpecificMuscle}>
+            {/* <SpecificMuscle/> */}
           </Route>
         </Switch>
       </div>

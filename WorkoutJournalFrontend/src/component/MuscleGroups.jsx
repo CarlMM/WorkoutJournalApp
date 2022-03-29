@@ -1,26 +1,44 @@
 import react from "react";
+import { useHistory } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
 
+} from "react-router-dom"
 
-function MuscleGroups(props){
+import SpecificMuscle from "./SpecificMuscle";
 
+function MuscleGroups(props) {
     const checkMuscles = () => {
         console.log(props.items)
     }
 
-    const loopMusclesList = props.items.map((m) => 
+    //let navigate = useHistory();
+    const loopMusclesList = props.items.map((m) =>
         <li>
-            {m.title}
+            <Link to={`/muscles/${m.id}`} key={m.id}>{m.title}</Link>
         </li>
     );
 
-    return(
+
+
+    return (
+        <Router>
+
         <div>
-            <h1>MuscleGrous</h1>
-            <button onClick={checkMuscles}>Muscles</button>
-            <ul>
-                {loopMusclesList}
-            </ul>
+            <h1>MuscleGroups</h1>
+            <nav>
+                <ul>
+                    {loopMusclesList}
+                </ul>
+            </nav>
         </div>
+            <Route exact path="/muscles/:id">
+            <SpecificMuscle/>
+          </Route>
+        </Router>
     )
 
 }

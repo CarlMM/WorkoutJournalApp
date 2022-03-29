@@ -47,6 +47,7 @@ function App() {
 
     return (
       <Navbar items={muscleList}/>
+      
   )
 }
 
