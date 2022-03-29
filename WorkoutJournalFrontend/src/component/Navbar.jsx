@@ -9,10 +9,10 @@ import {
 
 import Home from './Home'
 import MyProfilePage from './MyProfile/MyProfilePage'
+import MuscleGroups from './MuscleGroups'
 
 
-
-function Navbar(){
+function Navbar(props){
   
   
   const [counter, setCounter] = useState(0);
@@ -24,6 +24,7 @@ function Navbar(){
     
      return () => clearInterval(interval);
    }, []);
+  
   
    const [visible, setVisible] = React.useState(false);
 
@@ -39,6 +40,7 @@ function Navbar(){
           <nav>
             <Link to="/">Home</Link>
             <Link to="/myProfilePage">My Profile</Link>
+            <Link to="/muscles">MuscleGroups</Link>
             <button onClick={() => setVisible(false)}>Log out</button>
           </nav>
         </div>
@@ -49,6 +51,9 @@ function Navbar(){
           </Route>
           <Route path="/myProfilePage">
             <MyProfilePage/>
+          </Route>
+          <Route path="/muscles">
+            <MuscleGroups items={props.items}/>
           </Route>
         </Switch>
       </div>
