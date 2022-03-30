@@ -53,11 +53,11 @@ function Navbar(props){
           <Route path="/myProfilePage">
             <MyProfilePage/>
           </Route>
-          <Route path="/muscles">
+          <Route exact path="/muscles">
             <MuscleGroups items={props.items}/>
           </Route>
-          <Route exact path="/muscles/:id" component={SpecificMuscle}>
-            {/* <SpecificMuscle/> */}
+          <Route path="/muscles/:id">
+            <SpecificMuscle/>
           </Route>
         </Switch>
       </div>
