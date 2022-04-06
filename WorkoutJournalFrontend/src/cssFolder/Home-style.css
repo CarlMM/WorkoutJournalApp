@@ -1,4 +1,38 @@
+.line{
+    display: flex;
+    text-align: center;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+}
+
+.lineUp{
+    width: 100%;
+}
 h1{
+    font-size: 7vh;
     color: white;
     text-shadow: 1px 1px 2px black;
+    -webkit-font-smoothing: antialiased;
+    animation: 3s anim-lineUp ease-out;
 }
+
+@keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  } 

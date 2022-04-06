@@ -7,21 +7,15 @@ import SMuscleList from "./SMuscleList";
 function SpecificMuscle(props) {
     
     let { id } = useParams();
+    const newTitle = props.items.filter(t => t.id == id)
+    const currentMuscle = newTitle.map(s => s.title)
 
-    const checkProps = () =>{
-        console.log(props.items)
-        const newTitle = props.items.filter(t => t.id == id)
-        console.log(newTitle)
-        setCurrentMuscle(newTitle.title)
-        console.log(currentMuscle)
-    }
+    // const [currentMuscle, setCurrentMuscle] = useState('');
 
-    const [currentMuscle, setCurrentMuscle] = useState('');
-
-    useEffect(() => {
-        const newTitle = props.items.find(t => t.id == id)
-        setCurrentMuscle(newTitle.title)
-    }, [])
+    // useEffect(() => {
+    //     const newTitle = props.items.find(t => t.id == id)
+    //     setCurrentMuscle(newTitle.title)
+    // }, [])
 
     
     return (
@@ -38,9 +32,6 @@ function SpecificMuscle(props) {
                         key={s.id}
                         title={s.title}  
                         />
-                        // <li>
-                        //     {filteredArray.title}
-                        // </li>
                     ))}
             </ul>
         </div>

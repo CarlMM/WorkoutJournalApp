@@ -16,33 +16,58 @@ function Home(){
 
     const [clock, setCounter] = useState(0);
     const [currentDay, setCurrentDay] = useState('')
+    const [currentNumberDay, setCurrentNumberDay] = useState();
+    const [dailyQuote, setDailyQuote] = useState('');
+
+    const whatQuoteToday = (currentNumberDay) =>{
+        switch(currentNumberDay){
+            case 0:
+            return 'On sunday, we rest';
+            case 1:
+            return `Of course i'ts chest today!`;
+            case 2:
+            return 'Gains going up on a tuesday!';
+            case 3:
+            return 'Onsdag idag? Det betyder ben!';
+            case 4:
+            return 'Gorilla back thursday';
+            case 5:
+            return 'Discofredag på schemat!';
+            case 6:
+            return 'Saturday';
+
+        }
+
+    }
+
   
     useEffect(() => {
       const interval = setInterval(() => {
         setCounter((<p>It is {new Date().toLocaleTimeString()}.</p>));
       }, 1000);
-      
-        const whatDay = new Date();
-        const weekdayNumber = whatDay.getDay();
-        const dayName = weekDays[weekdayNumber]
-        setCurrentDay(dayName)
 
       return () => clearInterval(interval);
     }, []);
 
-    const fetchDay = () =>{
-        const today = new Date()
+    useEffect(() => {
+          const whatDay = new Date();
+          const weekdayNumber = whatDay.getDay();
+          const dayName = weekDays[weekdayNumber]
+          setCurrentDay(dayName)
+          setCurrentNumberDay(weekdayNumber)
+          const quote = whatQuoteToday(currentNumberDay)
+          setDailyQuote(quote)
+      }, [currentNumberDay]);
 
-        console.log(today.getDay())
-    }
-
-   
+    
 
     return (
-        <div>
-            <h1>{currentDay}</h1>
-            {clock}
-            <button onClick={fetchDay}>FetchDag</button>
+        <div className='line'>
+            <div className='lineUp'>
+                <h1>{currentDay}</h1>
+                {clock}
+                {dailyQuote}
+            </div>
         </div>
     )
 }
