@@ -36,7 +36,7 @@ function Navbar(props){
     <button onClick={() => setVisible(true)}>Login</button>
       }
     {visible && 
-        <div class="topNav">
+        <div className="topNav">
             {counter}
           <nav>
             <Link to="/">Home</Link>

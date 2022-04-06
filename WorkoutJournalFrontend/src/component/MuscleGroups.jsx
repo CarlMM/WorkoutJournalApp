@@ -19,8 +19,8 @@ function MuscleGroups(props) {
 
     //let navigate = useHistory();
     const loopMusclesList = props.items.map((m) =>
-        <li>
-            <Link onClick={() => history.push(`/muscles/${m.id}`)} key={m.id}>{m.title}</Link>
+        <li key={m.id}>
+            <Link onClick={() => history.push(`/muscles/${m.id}`)} >{m.title}</Link>
         </li>
     );
 
