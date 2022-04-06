@@ -19,12 +19,10 @@ function SpecificMuscle(props) {
     const [currentMuscle, setCurrentMuscle] = useState('');
 
     useEffect(() => {
-        const newTitle = props.items.filter(t => t.id == id)
-        console.log(newTitle)
-        console.log(newTitle.title)
-        setCurrentMuscle(newTitle.map(s => s.title))
+        const newTitle = props.items.find(t => t.id == id)
+        setCurrentMuscle(newTitle.title)
     }, [])
-    
+
     
     return (
         <div>

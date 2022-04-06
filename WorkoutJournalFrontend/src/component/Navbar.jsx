@@ -44,7 +44,6 @@ function Navbar(props){
       }
     {visible && 
         <div className="topNav">
-            {counter}
           <nav>
             <Link to="/">Home</Link>
             <Link to="/myProfilePage">My Profile</Link>
