@@ -4,24 +4,46 @@ import { useParams } from "react-router-dom";
 import SMuscleList from "./SMuscleList";
 
 
-function SpecificMuscle(props){
+function SpecificMuscle(props) {
+    
+    let { id } = useParams();
 
-
-    let {id} = useParams();
-
-    const filterMuscleExercises = () => {
-        const newList = props.sMuscle.filter(sM => sM.muscleCateogryId == id)
-        console.log(newList)
+    const checkProps = () =>{
+        console.log(props.items)
+        const newTitle = props.items.filter(t => t.id == id)
+        console.log(newTitle)
+        setCurrentMuscle(newTitle.title)
+        console.log(currentMuscle)
     }
 
-    return(
+    const [currentMuscle, setCurrentMuscle] = useState('');
+
+    useEffect(() => {
+        const newTitle = props.items.filter(t => t.id == id)
+        console.log(newTitle)
+        console.log(newTitle.title)
+        setCurrentMuscle(newTitle.map(s => s.title))
+    }, [])
+    
+    
+    return (
         <div>
-            <h1>Muscle id</h1>
+            <h1>Muskel: {currentMuscle}</h1>
             <h2>Muscle Details</h2>
             <h3>id: {id}</h3>
             <ul>
                 {props.sMuscle.filter(s => s.muscleCateogryId == id)
-                .map(filteredArray => (<li>{filteredArray.title}</li>))}
+                    .map(s =>
+                    (
+
+                        <SMuscleList
+                        key={s.id}
+                        title={s.title}  
+                        />
+                        // <li>
+                        //     {filteredArray.title}
+                        // </li>
+                    ))}
             </ul>
         </div>
     )

@@ -6,7 +6,7 @@ function SMuscleList(props){
 
     return(
         <div>
-            <h1>{props.title}</h1>
+            <h4>{props.title}</h4>
         </div>
     )
 }
