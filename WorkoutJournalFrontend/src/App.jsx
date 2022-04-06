@@ -64,6 +64,9 @@ const isolatedMuscleList = [
 ]
 
 function App() {
+
+  //For further reference
+  const [myExercises, setMyExercises] = useState([]);
   const [muscleList, setMuscleList] = useState(musclesGroupsList);
   const [isolatedMuscle, setisolatedMuscleList] = useState(isolatedMuscleList);
 

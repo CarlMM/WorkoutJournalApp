@@ -4,12 +4,10 @@ import React from 'react'
 function MyProfilePage(){
 
     
-    const myProfileMsg = "This is ur profilePage"
 
-
-    return <>
-        <h1>{myProfileMsg}</h1>
-    </>
+    return <div>
+        <h1>This is ur profilePage</h1>
+    </div>
 }
 
 export default MyProfilePage
