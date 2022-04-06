@@ -38,16 +38,37 @@ const musclesGroupsList = [
     id: 6,
     title: 'Abs',
   },
+];
+
+const isolatedMuscleList = [
+  {
+    id: 1,
+    muscleCateogryId: 1,
+    title: 'BenchPress',
+  },
+  {
+    id: 2,
+    muscleCateogryId: 1,
+    title: 'Incline BenchPress',
+  },
+  {
+    id: 3,
+    muscleCateogryId: 3,
+    title: 'Squats',
+  },
+  {
+    id: 4,
+    muscleCateogryId: 5,
+    title: 'BicepsCurl',
+  },
 ]
 
 function App() {
   const [muscleList, setMuscleList] = useState(musclesGroupsList);
-
-
+  const [isolatedMuscle, setisolatedMuscleList] = useState(isolatedMuscleList);
 
     return (
-      <Navbar items={muscleList}/>
-      
+      <Navbar items={muscleList} sMuscle={isolatedMuscle}/>
   )
 }
 

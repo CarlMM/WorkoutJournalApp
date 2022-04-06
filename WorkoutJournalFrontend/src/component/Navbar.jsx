@@ -13,22 +13,29 @@ import MuscleGroups from './MuscleGroups'
 import SpecificMuscle from './SpecificMuscle'
 
 
+
+  
+
+
+
+
+
 function Navbar(props){
   
   
   const [counter, setCounter] = useState(0);
   
-   useEffect(() => {
-     const interval = setInterval(() => {
-       setCounter((<p>It is {new Date().toLocaleTimeString()}.</p>));
-     }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter((<p>It is {new Date().toLocaleTimeString()}.</p>));
+    }, 1000);
     
-     return () => clearInterval(interval);
-   }, []);
+    return () => clearInterval(interval);
+  }, []);
   
   
-   const [visible, setVisible] = React.useState(false);
-
+  const [visible, setVisible] = React.useState(false);
+  
   return(
     <Router>
     <div>
@@ -57,7 +64,7 @@ function Navbar(props){
             <MuscleGroups items={props.items}/>
           </Route>
           <Route path="/muscles/:id">
-            <SpecificMuscle/>
+            <SpecificMuscle sMuscle={props.sMuscle}/>
           </Route>
         </Switch>
       </div>
