@@ -10,6 +10,11 @@ function SpecificMuscle(props) {
     const newTitle = props.items.filter(t => t.id == id)
     const currentMuscle = newTitle.map(s => s.title)
 
+    const checkItems = () =>{
+        console.log(props.sMuscle.filter(s => s.muscleCateogryId == id))
+    }
+
+
     return (
         <div>
             <h1>Muscle: {currentMuscle}</h1>
@@ -20,11 +25,15 @@ function SpecificMuscle(props) {
                     .map(s =>
                     (
 
-                        <SMuscleList
-                        key={s.id}
-                        title={s.title}  
-                        />
+                        <div>
+                            <SMuscleList
+                            key={s.id}
+                            title={s.title}
+                            />
+                            <button onClick={() => props.addExercise(s)}>Add Exercise</button>
+                        </div>
                     ))}
+                    
             </ul>
         </div>
     )

@@ -68,7 +68,7 @@ const LOCAL_STORAGE_KEY = 'myStoredExercises'
 function App() {
 
   //For further reference
-  const [myExercises, setMyExercises] = useState(['Tja']);
+  const [myExercises, setMyExercises] = useState([]);
   const [muscleList, setMuscleList] = useState(musclesGroupsList);
   const [isolatedMuscle, setisolatedMuscleList] = useState(isolatedMuscleList);
 
@@ -85,8 +85,20 @@ function App() {
       console.log(myStoredExercises)
     },[])
 
+
+    const addExercise = (obj) =>{
+      const exc = obj;
+      console.log(exc)
+      setMyExercises(oGList =>{return [...oGList, exc]})
+      console.log(myExercises)
+    }
+
+    
     return (
-      <Navbar items={muscleList} sMuscle={isolatedMuscle} exercises={myExercises}/>
+      <Navbar items={muscleList} 
+      sMuscle={isolatedMuscle} 
+      exercises={myExercises}  
+      addExercise={addExercise}/>
   )
 }
 

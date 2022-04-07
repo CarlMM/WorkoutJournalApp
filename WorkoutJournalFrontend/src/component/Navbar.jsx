@@ -75,7 +75,9 @@ function Navbar(props){
             <MuscleGroups items={props.items}/>
           </Route>
           <Route path="/muscles/:id">
-            <SpecificMuscle sMuscle={props.sMuscle} items={props.items} />
+            <SpecificMuscle sMuscle={props.sMuscle} 
+            items={props.items}
+            addExercise={props.addExercise} />
           </Route>
         </Switch>
       </div>
