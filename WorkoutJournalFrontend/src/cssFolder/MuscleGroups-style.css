@@ -1,0 +1,39 @@
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.muscleMainDiv{
+    width: 100%;
+}
+
+.muscleUl{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.muscleInnerDiv{
+    width: 45%;
+}
+
+.muscleNav-text {
+    padding: 0px 8px 8px 0px;
+    list-style: none;
+}
+
+.muscleNav-text a {
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    color: #f5f5f5;
+    font-size: 4vh;
+    height: 100%;
+    padding: 0 16px;
+
+}
+
+

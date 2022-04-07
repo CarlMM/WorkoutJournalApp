@@ -34,7 +34,7 @@ function Navbar(props) {
         </div>
         <nav className={visible ? 'nav-menu active' : 'nav-menu'}>
           <div>
-            <ul onClick={showSidebar}>
+            <ul className="arrowUl" onClick={showSidebar}>
               <FaIcons.FaArrowLeft className="menu-bars" />
             </ul>
             <ul className="nav-menu-items" onClick={showSidebar}>

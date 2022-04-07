@@ -9,23 +9,27 @@ import {
 } from "react-router-dom"
 
 
+import '../../cssFolder/MuscleGroups-style.css'
+
 function MuscleGroups(props) {
-    
-    const loopMusclesList = props.items.map((m) =>
-        <li key={m.id}>
-            <Link to={`/muscles/${m.id}`}>{m.title}</Link>
-        </li>
-    );
 
     return (
-
-        <div>
+        <div className="mainDiv">
             <h1>MuscleGroups</h1>
-                <ul>
-                    {loopMusclesList}
+            <div className="muscleMainDiv">
+                <ul className="muscleUl">
+                    {
+                        props.items.map((m) =>
+                            <div className="muscleInnerDiv">
+                                <li key={m.id} className="muscleNav-text">
+                                    <Link to={`/muscles/${m.id}`}>{m.title}</Link>
+                                </li>
+                            </div>
+                        )}
                 </ul>
+            </div>
         </div>
-            
+
     )
 
 }

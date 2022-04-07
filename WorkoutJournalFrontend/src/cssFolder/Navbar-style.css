@@ -29,6 +29,10 @@ nav {
     background: none;
 }
 
+.arrowUl{
+    padding-left: 10vw;
+}
+
 .navbar-toggle {
     width: 100%;
     padding-right: 10px;

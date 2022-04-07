@@ -65,7 +65,7 @@ function Home(){
         <div className='line'>
             <div className='lineUp'>
                 <h1 className='homeScreenH1'>{currentDay}</h1>
-                <div>{clock}</div>
+                <div className='clockDiv'>{clock}</div>
                 {dailyQuote}
             </div>
         </div>

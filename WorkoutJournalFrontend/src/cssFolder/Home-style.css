@@ -2,10 +2,9 @@
     display: flex;
     text-align: center;
     position: fixed;
-    top:50%;
+    top:40%;
     left: 50%;
     transform: translate(-50%, -50%);
-  
 }
 
 .lineUp{
@@ -16,6 +15,11 @@
     font-size: 7vh;
     -webkit-font-smoothing: antialiased;
     animation: 3s anim-lineUp ease-out;
+}
+
+.clockDiv{
+  -webkit-font-smoothing: antialiased;
+    animation: 5s anim-lineUp ease-out;
 }
 
 @keyframes anim-lineUp {
@@ -35,3 +39,7 @@
       transform: translateY(0%);
     }
   } 
+
+
+
+
