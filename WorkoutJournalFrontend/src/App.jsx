@@ -63,15 +63,30 @@ const isolatedMuscleList = [
   },
 ]
 
+const LOCAL_STORAGE_KEY = 'myStoredExercises'
+
 function App() {
 
   //For further reference
-  const [myExercises, setMyExercises] = useState([]);
+  const [myExercises, setMyExercises] = useState(['Tja']);
   const [muscleList, setMuscleList] = useState(musclesGroupsList);
   const [isolatedMuscle, setisolatedMuscleList] = useState(isolatedMuscleList);
 
+
+
+    useEffect(() =>{
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(myExercises))
+    }, [myExercises])
+
+    useEffect(()=>{
+      const myStoredExercises = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+      if(myStoredExercises)
+      setMyExercises(myStoredExercises)
+      console.log(myStoredExercises)
+    },[])
+
     return (
-      <Navbar items={muscleList} sMuscle={isolatedMuscle}/>
+      <Navbar items={muscleList} sMuscle={isolatedMuscle} exercises={myExercises}/>
   )
 }
 

@@ -11,6 +11,7 @@ import Home from './Home'
 import MyProfilePage from './MyProfile/MyProfilePage'
 import MuscleGroups from './MuscleGroups'
 import SpecificMuscle from './SpecificMuscle'
+import MyExercises from './MyProfile/MyExercises'
 
 
 
@@ -35,18 +36,26 @@ function Navbar(props){
   
   
   const [visible, setVisible] = React.useState(false);
+
+  const myStoredE = () =>{
+    console.log(props.exercises)
+}
   
   return(
     <Router>
     <div>
       {!visible &&
-    <button onClick={() => setVisible(true)}>Login</button>
+    <div>
+      <button onClick={() => setVisible(true)}>Login</button>
+      <button onClick={myStoredE}>My Exercises</button>
+    </div>
       }
     {visible && 
         <div className="topNav">
           <nav>
             <Link to="/">Home</Link>
             <Link to="/myProfilePage">My Profile</Link>
+            <Link to="/myExercises">My Exercises</Link>
             <Link to="/muscles">MuscleGroups</Link>
             <button onClick={() => setVisible(false)}>Log out</button>
           </nav>
@@ -59,11 +68,14 @@ function Navbar(props){
           <Route path="/myProfilePage">
             <MyProfilePage/>
           </Route>
+          <Route path="/myExercises">
+            <MyExercises savedExercises={props.exercises}/>
+          </Route>
           <Route exact path="/muscles">
             <MuscleGroups items={props.items}/>
           </Route>
           <Route path="/muscles/:id">
-            <SpecificMuscle sMuscle={props.sMuscle} items={props.items}/>
+            <SpecificMuscle sMuscle={props.sMuscle} items={props.items} />
           </Route>
         </Switch>
       </div>
