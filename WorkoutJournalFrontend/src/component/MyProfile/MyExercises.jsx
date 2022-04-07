@@ -10,12 +10,13 @@ function MyExercises(props){
         console.log(props.savedExercises)
     }
 
+
     return(
         <div>
             <h1>My saves exercises</h1>
             <ul>
                 {props.savedExercises.map(s => <div>
-                    <p>{s.title}</p><button></button>
+                    <p>{s.title}</p><button onClick={() => props.removeExercise(s)}>Remove</button>
                 </div>)}
             </ul>
             <button onClick={myStoredE}>My Exercises</button>

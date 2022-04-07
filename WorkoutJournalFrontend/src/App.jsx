@@ -93,12 +93,19 @@ function App() {
       console.log(myExercises)
     }
 
+    const removeExercise = (obj) => {
+      const exc = obj;
+      setMyExercises(oGList => {return [...oGList.filter(s => s!==exc)]})
+      console.log(exc)
+    }
+
     
     return (
       <Navbar items={muscleList} 
       sMuscle={isolatedMuscle} 
       exercises={myExercises}  
-      addExercise={addExercise}/>
+      addExercise={addExercise}
+      removeExercise={removeExercise}/>
   )
 }
 

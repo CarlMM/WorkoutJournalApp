@@ -69,7 +69,7 @@ function Navbar(props){
             <MyProfilePage/>
           </Route>
           <Route path="/myExercises">
-            <MyExercises savedExercises={props.exercises}/>
+            <MyExercises savedExercises={props.exercises} removeExercise={props.removeExercise}/>
           </Route>
           <Route exact path="/muscles">
             <MuscleGroups items={props.items}/>
