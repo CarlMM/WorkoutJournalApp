@@ -1,14 +1,8 @@
 import react from "react";
 
-import sMuscle from '../SpecificMuscle'
+import sMuscle from '../MusclePages/SpecificMuscle'
 
 function MyExercises(props){
-
-
-
-    const myStoredE = () =>{
-        console.log(props.savedExercises)
-    }
 
 
     return(
@@ -19,7 +13,6 @@ function MyExercises(props){
                     <p>{s.title}</p><button onClick={() => props.removeExercise(s)}>Remove</button>
                 </div>)}
             </ul>
-            <button onClick={myStoredE}>My Exercises</button>
         </div>
     )
 }

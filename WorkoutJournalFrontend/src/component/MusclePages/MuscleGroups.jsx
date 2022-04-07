@@ -21,11 +21,9 @@ function MuscleGroups(props) {
 
         <div>
             <h1>MuscleGroups</h1>
-            <nav>
                 <ul>
                     {loopMusclesList}
                 </ul>
-            </nav>
         </div>
             
     )

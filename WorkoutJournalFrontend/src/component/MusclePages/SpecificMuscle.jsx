@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import {BrowserRouter as Router, Link } from "react-router-dom"
 
 import SMuscleList from "./SMuscleList";
 
@@ -10,15 +11,13 @@ function SpecificMuscle(props) {
     const newTitle = props.items.filter(t => t.id == id)
     const currentMuscle = newTitle.map(s => s.title)
 
-    const checkItems = () =>{
-        console.log(props.sMuscle.filter(s => s.muscleCateogryId == id))
-    }
-
 
     return (
         <div>
             <h1>Muscle: {currentMuscle}</h1>
-            <button>Return to Musclepage</button>
+            <Link to="/muscles">
+                <button>Return to Musclepage</button>
+            </Link>
             <h2>Muscle Details</h2>
             <ul>
                 {props.sMuscle.filter(s => s.muscleCateogryId == id)
