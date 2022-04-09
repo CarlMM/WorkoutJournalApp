@@ -61,6 +61,36 @@ const isolatedMuscleList = [
     muscleCateogryId: 5,
     title: 'BicepsCurl',
   },
+  {
+    id: 5,
+    muscleCateogryId: 1,
+    title: 'Dips',
+  },
+  {
+    id: 6,
+    muscleCateogryId: 1,
+    title: 'Incline Flies',
+  },
+  {
+    id: 7,
+    muscleCateogryId: 1,
+    title: 'Chest Flies',
+  },
+  {
+    id: 8,
+    muscleCateogryId: 1,
+    title: 'Dumbell press',
+  },
+  {
+    id: 9,
+    muscleCateogryId: 1,
+    title: 'Cable crossover',
+  },
+  {
+    id: 10,
+    muscleCateogryId: 1,
+    title: 'Pushups',
+  },
 ]
 
 const LOCAL_STORAGE_KEY = 'myStoredExercises'

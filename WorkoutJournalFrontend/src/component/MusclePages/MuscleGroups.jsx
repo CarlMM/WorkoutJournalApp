@@ -16,6 +16,7 @@ function MuscleGroups(props) {
     return (
         <div className="mainDiv">
             <h1>MuscleGroups</h1>
+            <h3>Browse exercises</h3>
             <div className="muscleMainDiv">
                 <ul className="muscleUl">
                     {

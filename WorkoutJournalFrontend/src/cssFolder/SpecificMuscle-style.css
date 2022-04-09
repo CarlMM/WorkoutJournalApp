@@ -1,0 +1,33 @@
+.mainDivSMuscle{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.addExerciseBtn{
+    background-color: transparent;
+    border-style: none ;
+    font-size: 3vh;
+}
+
+.addIcon{
+    color: white;
+}
+
+.sMuscleInnerDiv{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 40%;
+}
+
+/* 
+.exerciseDiv{
+    display: flex;
+} */
+
+.muscleInnerDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

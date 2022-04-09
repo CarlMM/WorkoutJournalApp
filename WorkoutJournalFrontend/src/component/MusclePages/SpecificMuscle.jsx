@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {BrowserRouter as Router, Link } from "react-router-dom"
+import { BrowserRouter as Router, Link } from "react-router-dom"
+import * as GrIcons from 'react-icons/GR'
+import * as CgIcons from 'react-icons/CG'
 
 import SMuscleList from "./SMuscleList";
 
 
+import '../../cssFolder/SpecificMuscle-style.css'
+
 function SpecificMuscle(props) {
-    
+
     let { id } = useParams();
     const newTitle = props.items.filter(t => t.id == id)
     const currentMuscle = newTitle.map(s => s.title)
@@ -19,21 +23,29 @@ function SpecificMuscle(props) {
                 <button>Return to Musclepage</button>
             </Link>
             <h2>Muscle Details</h2>
-            <ul>
-                {props.sMuscle.filter(s => s.muscleCateogryId == id)
-                    .map(s =>
-                    (
+            <div className="mainDivSMuscle">
+                <ul className="muscleUl">
+                    {props.sMuscle.filter(s => s.muscleCateogryId == id)
+                        .map(s =>
+                        (
+                            <div className="sMuscleInnerDiv">
+                                <div>
+                                    <SMuscleList
+                                        key={s.id}
+                                        title={s.title}
+                                    />
+                                </div>
+                                <div>
+                                    <button className="addExerciseBtn" onClick={() => props.addExercise(s)}>
+                                    <CgIcons.CgAdd className="addIcon"/>
+                                    {/* <GrIcons.GrAdd/> */}
+                                </button>
+                                </div>
+                            </div>
+                        ))}
 
-                        <div>
-                            <SMuscleList
-                            key={s.id}
-                            title={s.title}
-                            />
-                            <button onClick={() => props.addExercise(s)}>Add Exercise</button>
-                        </div>
-                    ))}
-                    
-            </ul>
+                </ul>
+            </div>
         </div>
     )
 
