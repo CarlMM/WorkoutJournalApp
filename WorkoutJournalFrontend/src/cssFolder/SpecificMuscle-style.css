@@ -1,25 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@700&display=swap');
+
 .mainDivSMuscle{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
 }
 
-.addExerciseBtn{
-    background-color: transparent;
-    border-style: none ;
-    font-size: 3vh;
+.sMuscleInnerDiv{
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-content:center;
+    width: 40%;
 }
+.addExerciseBtn{
+    background-color: #437bb3;
+    border-radius: 25px;
+    border-style: none ;
+    font-size: 1.7vh;
+    color: white;
+    font-family: 'Encode Sans', sans-serif;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+}
+
+.addExerciseBtn:hover {
+    background-color: #5597da;
+    /* box-shadow: 0px 15px 20px rgba(6, 97, 182, 0.4); */
+    color: #fff;
+    transform: translateY(-7px);
+  }
 
 .addIcon{
     color: white;
 }
 
-.sMuscleInnerDiv{
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    width: 40%;
-}
 
 /* 
 .exerciseDiv{

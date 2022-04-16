@@ -37,7 +37,8 @@ function SpecificMuscle(props) {
                                 </div>
                                 <div>
                                     <button className="addExerciseBtn" onClick={() => props.addExercise(s)}>
-                                    <CgIcons.CgAdd className="addIcon"/>
+                                        Add Exercise
+                                    {/* <CgIcons.CgAdd className="addIcon"/> */}
                                     {/* <GrIcons.GrAdd/> */}
                                 </button>
                                 </div>
