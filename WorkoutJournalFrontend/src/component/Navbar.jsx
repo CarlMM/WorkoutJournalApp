@@ -54,24 +54,6 @@ function Navbar(props) {
             </ul>
           </div>
         </nav>
-
-
-        {/* {!visible &&
-    <div>
-      <button onClick={() => setVisible(true)}>Login</button>
-    </div>
-      }
-    {visible && 
-        <div className="topNav">
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/myProfilePage">My Profile</Link>
-            <Link to="/myExercises">My Exercises</Link>
-            <Link to="/muscles">MuscleGroups</Link>
-            <button onClick={() => setVisible(false)}>Log out</button>
-          </nav>
-        </div>
-      } */}
         <Switch>
           <Route exact path="/">
             <Home />

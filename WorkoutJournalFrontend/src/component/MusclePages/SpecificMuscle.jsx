@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BrowserRouter as Router, Link } from "react-router-dom"
-import * as GrIcons from 'react-icons/GR'
-import * as CgIcons from 'react-icons/CG'
 
 import SMuscleList from "./SMuscleList";
 
@@ -14,6 +12,11 @@ function SpecificMuscle(props) {
     let { id } = useParams();
     const newTitle = props.items.filter(t => t.id == id)
     const currentMuscle = newTitle.map(s => s.title)
+    const [buttonText, setButtonText] = useState('Add Exercise');
+
+    const isAdded = () => {
+        setButtonText('Added!')
+    }
 
 
     return (
@@ -36,15 +39,12 @@ function SpecificMuscle(props) {
                                     />
                                 </div>
                                 <div>
-                                    <button className="addExerciseBtn" onClick={() => props.addExercise(s)}>
-                                        Add Exercise
-                                    {/* <CgIcons.CgAdd className="addIcon"/> */}
-                                    {/* <GrIcons.GrAdd/> */}
-                                </button>
+                                    <button className="addExerciseBtn" onClick={() => { props.addExercise(s); isAdded(s.id); }}>
+                                        <p>{buttonText}</p>
+                                    </button>
                                 </div>
                             </div>
                         ))}
-
                 </ul>
             </div>
         </div>
