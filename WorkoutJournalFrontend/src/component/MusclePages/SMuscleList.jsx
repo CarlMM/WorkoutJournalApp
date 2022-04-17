@@ -7,10 +7,6 @@ function SMuscleList(props){
 
     const [buttonText, setButtonText] = useState("Add")
 
-    const check = () =>{
-        console.log(props)
-    }
-
     const isAdded = () =>{
         setButtonText("Added!")
     }
@@ -21,8 +17,6 @@ function SMuscleList(props){
                 <CustomButton 
                 onClick={() => {props.addExercise({id: props.id, title: props.title}); isAdded();}}
                 content={buttonText} 
-                title={props.title} 
-                id={props.id} 
                 />
             </div>
     )

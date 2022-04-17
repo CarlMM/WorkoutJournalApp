@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { BrowserRouter as Router, Link } from "react-router-dom"
 
 import SMuscleList from "./SMuscleList";
+import CustomButton from "../CustomButton";
 
 
 import '../../cssFolder/SpecificMuscle-style.css'
@@ -17,7 +18,7 @@ function SpecificMuscle(props) {
         <div>
             <h1>Muscle: {currentMuscle}</h1>
             <Link to="/muscles">
-                <button>Return to Musclepage</button>
+                <CustomButton content={"Return to Musclepage"}/>
             </Link>
             <h2>Muscle Details</h2>
             <div className="mainDivSMuscle">
