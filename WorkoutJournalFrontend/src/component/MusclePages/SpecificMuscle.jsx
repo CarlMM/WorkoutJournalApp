@@ -12,12 +12,6 @@ function SpecificMuscle(props) {
     let { id } = useParams();
     const newTitle = props.items.filter(t => t.id == id)
     const currentMuscle = newTitle.map(s => s.title)
-    const [buttonText, setButtonText] = useState('Add Exercise');
-
-    const isAdded = () => {
-        setButtonText('Added!')
-    }
-
 
     return (
         <div>
@@ -36,13 +30,15 @@ function SpecificMuscle(props) {
                                     <SMuscleList
                                         key={s.id}
                                         title={s.title}
+                                        id={s.id}
+                                        addExercise={props.addExercise}
                                     />
                                 </div>
-                                <div>
+                                {/* <div>
                                     <button className="addExerciseBtn" onClick={() => { props.addExercise(s); isAdded(s.id); }}>
                                         <p>{buttonText}</p>
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         ))}
                 </ul>
