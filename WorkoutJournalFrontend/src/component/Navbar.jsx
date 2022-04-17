@@ -45,10 +45,10 @@ function Navbar(props) {
                 <Link to="/myProfilePage">My Profile</Link>
               </li>
               <li className="nav-text">
-                <Link to="/myExercises">My Exercises</Link>
+                <Link to="/muscles">MuscleGroups</Link>
               </li>
               <li className="nav-text">
-                <Link to="/muscles">MuscleGroups</Link>
+                <Link to="/myExercises">My Exercises</Link>
               </li>
               
             </ul>

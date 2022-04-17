@@ -4,16 +4,13 @@ import react from "react";
 
 function CustomButton(props){
 
-    
-    const check = () => {
-        console.log(props.id)
-        console.log(props.title)
-        
-    }
-
+    // props.addExercise(props); 
+    //props.changeText(props.id)
+   
     return(
         <div>
-            <button className="addExerciseBtn" onClick={() => { props.addExercise(props); props.changeText(props.id)}}>
+            <button className="addExerciseBtn" 
+            onClick={props.onClick}>
                 <p>{props.content}</p>
             </button>
         </div>

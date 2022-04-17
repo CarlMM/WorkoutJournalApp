@@ -11,20 +11,19 @@ function SMuscleList(props){
         console.log(props)
     }
 
-    const isAdded = (id) =>{
+    const isAdded = () =>{
         setButtonText("Added!")
     }
-
 
     return(
             <div>
                 <h4>{props.title}</h4>
                 <CustomButton 
+                onClick={() => {props.addExercise({id: props.id, title: props.title}); isAdded();}}
                 content={buttonText} 
                 title={props.title} 
                 id={props.id} 
-                addExercise={props.addExercise}
-                changeText={isAdded}/>
+                />
             </div>
     )
 }
