@@ -5,15 +5,26 @@ import CustomButton from "../CustomButton";
 
 function SMuscleList(props){
 
+    const [buttonText, setButtonText] = useState("Add")
+
     const check = () =>{
         console.log(props)
+    }
+
+    const isAdded = (id) =>{
+        setButtonText("Added!")
     }
 
 
     return(
             <div>
                 <h4>{props.title}</h4>
-                <CustomButton title={props.title} id={props.id} addExercise={props.addExercise}/>
+                <CustomButton 
+                content={buttonText} 
+                title={props.title} 
+                id={props.id} 
+                addExercise={props.addExercise}
+                changeText={isAdded}/>
             </div>
     )
 }

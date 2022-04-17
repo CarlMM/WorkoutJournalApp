@@ -13,8 +13,8 @@ function CustomButton(props){
 
     return(
         <div>
-            <button onClick={() => { props.addExercise(props)}}>
-                <p>Add</p>
+            <button className="addExerciseBtn" onClick={() => { props.addExercise(props); props.changeText(props.id)}}>
+                <p>{props.content}</p>
             </button>
         </div>
     )
