@@ -7,7 +7,7 @@ import CustomButton from "../CustomButton";
 function MyExercises(props){
 
 
-    const [buttonText, setButtonText] = useState("Remove")
+    const [buttonText, setButtonText] = useState("Remove exercise")
 
 
     return(
