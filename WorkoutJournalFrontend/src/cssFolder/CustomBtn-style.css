@@ -1,0 +1,36 @@
+.CustomButton{
+    /* background-color: #437bb3; */
+    font-family: 'Encode Sans', sans-serif;
+    color: white;
+    font-size: 1.5vh;
+}
+
+.addExerciseBtn{
+    background-color: #437bb3;
+    border-radius: 25px;
+    border-style: none ;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+}
+/* .addExerciseBtn > p{
+} */
+
+.addExerciseBtn:hover {
+    background-color: #5597da;
+    /* box-shadow: 0px 15px 20px rgba(6, 97, 182, 0.4); */
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.removeExerciseBtn{
+    background-color: rgb(248, 46, 46);
+    border-radius: 25px;
+    border-style: none ;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+}
+

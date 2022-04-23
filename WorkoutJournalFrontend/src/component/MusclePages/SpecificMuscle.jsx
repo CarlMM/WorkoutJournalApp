@@ -18,7 +18,9 @@ function SpecificMuscle(props) {
         <div>
             <h1>Muscle: {currentMuscle}</h1>
             <Link to="/muscles">
-                <CustomButton content={"Return to Musclepage"}/>
+                <CustomButton 
+                className = "addExerciseBtn"
+                content={"Return to Musclepage"}/>
             </Link>
             <h2>Muscle Details</h2>
             <div className="mainDivSMuscle">

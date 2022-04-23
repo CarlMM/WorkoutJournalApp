@@ -1,15 +1,15 @@
 import react from "react";
 
+import '../cssFolder/CustomBtn-style.css'
 
 
 function CustomButton(props){
 
-    // props.addExercise(props); 
-    //props.changeText(props.id)
+   const classes = 'CustomButton ' + props.className;
    
     return(
         <div>
-            <button className="addExerciseBtn" 
+            <button className={classes}
             onClick={props.onClick}>
                 <p>{props.content}</p>
             </button>

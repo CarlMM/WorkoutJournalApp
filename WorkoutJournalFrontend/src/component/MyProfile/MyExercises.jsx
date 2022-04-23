@@ -1,8 +1,13 @@
-import react from "react";
+import React, { useState, useEffect } from "react";
 
 import sMuscle from '../MusclePages/SpecificMuscle'
 
+import CustomButton from "../CustomButton";
+
 function MyExercises(props){
+
+
+    const [buttonText, setButtonText] = useState("Remove")
 
 
     return(
@@ -11,7 +16,10 @@ function MyExercises(props){
             <ul>
                 {props.savedExercises.map(s => <div>
                     <p>{s.title}</p>
-                    <button onClick={() => props.removeExercise(s)}>Remove</button>
+                    <CustomButton
+                    className="removeExerciseBtn" 
+                    onClick={() => props.removeExercise(s)}
+                    content={buttonText}/>
                 </div>)}
             </ul>
         </div>
