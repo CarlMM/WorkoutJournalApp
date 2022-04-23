@@ -13,6 +13,7 @@ import MyProfilePage from './MyProfile/MyProfilePage'
 import MuscleGroups from './MusclePages/MuscleGroups'
 import SpecificMuscle from './MusclePages/SpecificMuscle'
 import MyExercises from './MyProfile/MyExercises'
+import CustomButton from './CustomButton'
 
 import '../cssFolder/Navbar-style.css'
 
@@ -21,6 +22,7 @@ function Navbar(props) {
 
 
   const [visible, setVisible] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   const showSidebar = () => {
     setVisible(!visible)
@@ -33,7 +35,7 @@ function Navbar(props) {
           <FaIcons.FaBars  onClick={showSidebar} />
         </div>
         <nav className={visible ? 'nav-menu active' : 'nav-menu'}>
-          <div>
+          <div className="sideBarDiv">
             <ul className="arrowUl" onClick={showSidebar}>
               <FaIcons.FaArrowLeft className="menu-bars" />
             </ul>
@@ -41,17 +43,41 @@ function Navbar(props) {
               <li className="nav-text">
                 <Link to="/">Home</Link>
               </li>
-              <li className="nav-text">
+              {/* <li className="nav-text">
                 <Link to="/myProfilePage">My Profile</Link>
-              </li>
+              </li> */}
               <li className="nav-text">
                 <Link to="/muscles">MuscleGroups</Link>
               </li>
-              <li className="nav-text">
+              {/* <li className="nav-text">
                 <Link to="/myExercises">My Exercises</Link>
               </li>
+              <li className="nav-text">
+                <Link to="/">My Routines</Link>
+              </li> */}
               
             </ul>
+            {!showProfile &&
+            <CustomButton 
+            className="addExerciseBtn"
+            content={'Log in'}
+            onClick={() => setShowProfile(true)}
+            />
+            }
+            {showProfile && 
+            <div>
+              <li className="nav-text">
+                <Link to="/myProfilePage">My Profile</Link>
+                <li className="nav-text">
+                <Link to="/myExercises">My Exercises</Link>
+              </li>
+              <li className="nav-text">
+                <Link to="/">My Routines</Link>
+              </li>
+                <button onClick={() => setShowProfile(false)}>Log out</button>
+              </li>
+            </div>
+            }
           </div>
         </nav>
         <Switch>
