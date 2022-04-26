@@ -66,6 +66,7 @@ function Navbar(props) {
             }
             {showProfile && 
             <div>
+              <ul onClick={showSidebar}>
               <li className="nav-text">
                 <Link to="/myProfilePage">My Profile</Link>
                 <li className="nav-text">
@@ -76,6 +77,7 @@ function Navbar(props) {
               </li>
                 <button onClick={() => setShowProfile(false)}>Log out</button>
               </li>
+            </ul>
             </div>
             }
           </div>
