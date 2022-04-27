@@ -11,6 +11,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WorkoutJournal.Domain.Interfaces;
+using WorkoutJournal.Domain.Models;
+using WorkoutJournal.Domain.Services;
+using WorkoutJournal.Infrastructure.Context;
+using WorkoutJournal.Infrastructure.Interfaces;
+using WorkoutJournal.Infrastructure.Repository;
 
 namespace WorkoutJournalWebApi
 {
@@ -27,6 +33,9 @@ namespace WorkoutJournalWebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<IWorkoutDBContext, WorkoutDBContext>();
+            services.AddTransient<IRoutineRepository, RoutineRepository>();
+            services.AddTransient<IRoutineService, RoutineService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -43,6 +52,7 @@ namespace WorkoutJournalWebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WorkoutJournalWebApi v1"));
             }
+
 
             app.UseHttpsRedirection();
 

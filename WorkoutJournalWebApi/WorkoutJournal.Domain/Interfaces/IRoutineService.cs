@@ -7,7 +7,7 @@ using WorkoutJournal.Domain.Models;
 
 namespace WorkoutJournal.Domain.Interfaces
 {
-    public interface IRoutineRepository
+    public interface IRoutineService
     {
 
         Task<IEnumerable<Routine>> GetAllRoutinesAsync();

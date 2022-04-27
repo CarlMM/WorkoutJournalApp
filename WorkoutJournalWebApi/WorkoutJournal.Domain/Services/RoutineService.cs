@@ -5,22 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using WorkoutJournal.Domain.Interfaces;
 using WorkoutJournal.Domain.Models;
+using WorkoutJournal.Infrastructure.Interfaces;
 
 namespace WorkoutJournal.Domain.Services
 {
-    class RoutineService : IRoutineRepository
+    public class RoutineService : IRoutineService
     {
-        private readonly IRoutineRepository routineRepository;
+        private readonly IRoutineRepository routineService;
 
         public RoutineService(IRoutineRepository repo)
         {
-            this.routineRepository = repo;
+            this.routineService = repo;
         }
 
 
         public async Task<IEnumerable<Routine>> GetAllRoutinesAsync()
         {
-            return await routineRepository.GetAllRoutinesAsync();
+            return await routineService.GetAllRoutinesAsync();
         }
 
     }

@@ -7,7 +7,7 @@ using WorkoutJournal.Domain.Models;
 
 namespace WorkoutJournal.Infrastructure.Context
 {
-    public partial class WorkoutDBContext : DbContext
+    public partial class WorkoutDBContext : DbContext, IWorkoutDBContext
     {
         public WorkoutDBContext()
         {

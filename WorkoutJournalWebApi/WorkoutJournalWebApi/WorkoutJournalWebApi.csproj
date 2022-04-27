@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WorkoutJournal.Domain\WorkoutJournal.Domain.csproj" />
+    <ProjectReference Include="..\WorkoutJournal.Infrastructure\WorkoutJournal.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
