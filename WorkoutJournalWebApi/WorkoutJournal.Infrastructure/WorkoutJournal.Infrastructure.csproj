@@ -21,4 +21,8 @@
     <ProjectReference Include="..\WorkoutJournal.Domain\WorkoutJournal.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
 </Project>

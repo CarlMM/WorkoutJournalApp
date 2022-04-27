@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using WorkoutJournal.Domain.Models;
 
 #nullable disable
 
-namespace WorkoutJournal.Domain.Models
+namespace WorkoutJournal.Infrastructure.Context
 {
     public partial class WorkoutDBContext : DbContext
     {
