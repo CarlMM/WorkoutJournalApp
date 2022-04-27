@@ -11,17 +11,17 @@ namespace WorkoutJournal.Domain.Services
 {
     public class RoutineService : IRoutineService
     {
-        private readonly IRoutineRepository routineService;
+        private readonly IRoutineRepository routineRepository;
 
-        public RoutineService(IRoutineRepository repo)
+        public RoutineService(IRoutineRepository routineRepo)
         {
-            this.routineService = repo;
+            this.routineRepository = routineRepo;
         }
 
 
         public async Task<IEnumerable<Routine>> GetAllRoutinesAsync()
         {
-            return await routineService.GetAllRoutinesAsync();
+            return await routineRepository.GetAllRoutinesAsync();
         }
 
     }
