@@ -7,9 +7,17 @@ using System.Threading.Tasks;
 
 namespace WorkoutJournalWebApi.Controllers
 {
+    
+
+
     [Route("api/[controller]")]
     [ApiController]
     public class RoutineController : ControllerBase
     {
+
+
+
+
+
     }
 }
