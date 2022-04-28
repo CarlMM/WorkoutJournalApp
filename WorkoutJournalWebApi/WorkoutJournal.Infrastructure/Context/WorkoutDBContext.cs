@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using WorkoutJournal.Domain.Models;
@@ -9,9 +11,9 @@ namespace WorkoutJournal.Infrastructure.Context
 {
     public partial class WorkoutDBContext : DbContext, IWorkoutDBContext
     {
-        public WorkoutDBContext()
-        {
-        }
+        //public WorkoutDBContext()
+        //{
+        //}
 
         public WorkoutDBContext(DbContextOptions<WorkoutDBContext> options)
             : base(options)
@@ -33,6 +35,12 @@ namespace WorkoutJournal.Infrastructure.Context
                 optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=WorkoutDB;Trusted_Connection=True;");
             }
         }
+
+
+        //public override Task<int> SaveChangesAsync(CancellationToken ct = default)
+        //{
+        //    return base.SaveChangesAsync();
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

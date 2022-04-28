@@ -12,6 +12,10 @@ namespace WorkoutJournal.Infrastructure.Interfaces
 
         Task<IEnumerable<Routine>> GetAllRoutinesAsync();
 
+        Task<Routine> AddNewRoutine(Routine newRoutine);
+
+
+        Task SaveChangesAsync();
 
     }
 }
