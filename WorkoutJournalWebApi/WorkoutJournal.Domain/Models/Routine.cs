@@ -18,6 +18,13 @@ namespace WorkoutJournal.Domain.Models
             Name = name;
         }
 
+        public Routine(int id, string name)
+        {
+            WorkoutExercises = new HashSet<WorkoutExercise>();
+            Id = id;
+            Name = name;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
 

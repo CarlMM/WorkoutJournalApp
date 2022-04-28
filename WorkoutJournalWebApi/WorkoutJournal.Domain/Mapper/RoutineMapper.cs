@@ -12,25 +12,14 @@ namespace WorkoutJournal.Domain.Mapper
     internal static class RoutineMapper
     {
 
-        public static RoutineDto ToDto(this Routine routine)
-        {
-            return new RoutineDto
-            {
-                Id = routine.Id,
-                Name = routine.Name
-            };
-        }
+        internal static IEnumerable<RoutineDto> ToRoutineDtoList(this List<Routine> routineList) =>
+            routineList.Select(r => r.ToRoutineDto()).ToList();
 
-        //public static Routine ToRoutine(this RoutineDto routineDto)
-        //{
 
-        //    return new Routine
-        //    {
-        //        Id = routineDto.Id,
-        //        Name = routineDto.Name
-        //    };
 
-        //}
+        internal static RoutineDto ToRoutineDto(this Routine routine) =>
+            new RoutineDto(routine.Id, routine.Name);
+       
 
         internal static Routine ToRoutine(this SetRoutineDto dto) =>
              new Routine(dto.name);

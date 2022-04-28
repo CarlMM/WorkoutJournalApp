@@ -12,7 +12,7 @@ namespace WorkoutJournal.Domain.Interfaces
     public interface IRoutineService
     {
 
-        Task<IEnumerable<Routine>> GetAllRoutinesAsync();
+        Task<IEnumerable<RoutineDto>> GetAllRoutinesAsync();
 
         Task AddNewRoutine(SetRoutineDto newRoutine);
 

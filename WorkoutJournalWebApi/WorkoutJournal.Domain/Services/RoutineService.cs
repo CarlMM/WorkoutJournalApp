@@ -22,9 +22,12 @@ namespace WorkoutJournal.Domain.Services
         }
 
 
-        public async Task<IEnumerable<Routine>> GetAllRoutinesAsync()
+        public async Task<IEnumerable<RoutineDto>> GetAllRoutinesAsync()
         {
-            return await routineRepository.GetAllRoutinesAsync();
+            var routines = await routineRepository.GetAllRoutinesAsync();
+
+
+            return routines.ToList().ToRoutineDtoList();
         }
 
 

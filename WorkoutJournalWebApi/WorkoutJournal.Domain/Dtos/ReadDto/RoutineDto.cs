@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace WorkoutJournal.Domain.Dtos
 {
-    public record RoutineDto
+    public record RoutineDto(int id, string name)
     {
-        public int Id { get; init; }
-        public string Name { get; init; }
 
     }
+
+
+    
 }
