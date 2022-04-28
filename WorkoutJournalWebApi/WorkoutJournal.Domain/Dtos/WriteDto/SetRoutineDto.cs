@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace WorkoutJournal.Domain.Dtos.WriteDto
 {
-    class SetRoutineDto
-    {
-    }
+    public record SetRoutineDto(string name);
 }

@@ -19,7 +19,7 @@ namespace WorkoutJournal.Infrastructure.Context
         DbSet<WorkoutExercise> WorkoutExercises { get; }
         DbSet<User> Users { get; }
 
-        Task SaveChangesAsync();
+        Task<int> SaveChangesAsync();
 
 
     }

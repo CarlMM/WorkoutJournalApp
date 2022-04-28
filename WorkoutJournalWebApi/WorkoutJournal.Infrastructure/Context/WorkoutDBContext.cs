@@ -11,9 +11,9 @@ namespace WorkoutJournal.Infrastructure.Context
 {
     public partial class WorkoutDBContext : DbContext, IWorkoutDBContext
     {
-        //public WorkoutDBContext()
-        //{
-        //}
+        public WorkoutDBContext()
+        {
+        }
 
         public WorkoutDBContext(DbContextOptions<WorkoutDBContext> options)
             : base(options)
@@ -37,10 +37,10 @@ namespace WorkoutJournal.Infrastructure.Context
         }
 
 
-        //public override Task<int> SaveChangesAsync(CancellationToken ct = default)
-        //{
-        //    return base.SaveChangesAsync();
-        //}
+        public Task<int> SaveChangesAsync()
+        {
+            return base.SaveChangesAsync();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

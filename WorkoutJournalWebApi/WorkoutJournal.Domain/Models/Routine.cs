@@ -12,6 +12,12 @@ namespace WorkoutJournal.Domain.Models
             WorkoutExercises = new HashSet<WorkoutExercise>();
         }
 
+        public Routine(string name)
+        {
+            WorkoutExercises = new HashSet<WorkoutExercise>();
+            Name = name;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
 

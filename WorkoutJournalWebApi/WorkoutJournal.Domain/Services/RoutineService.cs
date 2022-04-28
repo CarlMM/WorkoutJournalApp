@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WorkoutJournal.Domain.Dtos;
+using WorkoutJournal.Domain.Dtos.WriteDto;
 using WorkoutJournal.Domain.Interfaces;
 using WorkoutJournal.Domain.Mapper;
 using WorkoutJournal.Domain.Models;
@@ -27,13 +28,18 @@ namespace WorkoutJournal.Domain.Services
         }
 
 
-        public async Task<RoutineDto> AddNewRoutine(RoutineDto newRoutine)
+        public async Task AddNewRoutine(SetRoutineDto newRoutine)
         {
-            var routineToAdd = new Routine();
-            
-            routineRepository.AddNewRoutine(routineToAdd);
+            if(newRoutine == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            Routine routineToAdd = newRoutine.ToRoutine();
+            await routineRepository.AddNewRoutine(routineToAdd);
             await routineRepository.SaveChangesAsync();
-            return routineToAdd.ToDto();
+
+
         }
 
     }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WorkoutJournal.Domain.Interfaces;
 using WorkoutJournal.Domain.Dtos;
+using WorkoutJournal.Domain.Dtos.WriteDto;
 
 namespace WorkoutJournalWebApi.Controllers
 {
@@ -35,11 +36,11 @@ namespace WorkoutJournalWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNewRoutine()
+        public async Task<IActionResult> AddNewRoutine(SetRoutineDto routineDto)
         {
-            var result = await service.AddNewRoutine(RoutineDto newRoutine);
+            await service.AddNewRoutine(routineDto);
 
-            return Ok(result);
+            return Ok();
         }
 
 
