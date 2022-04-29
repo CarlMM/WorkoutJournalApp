@@ -45,5 +45,17 @@ namespace WorkoutJournal.Domain.Services
 
         }
 
+        public async Task UpdateRoutineAsync(int id, SetRoutineDto routineDto)
+        {
+            var routineToUpdate = await routineRepository.GetRoutineByIdAsync(id);
+
+
+            routineToUpdate.Name = routineDto.name;
+
+
+            routineRepository.UpdateRoutineAsync(routineToUpdate);
+            await routineRepository.SaveChangesAsync();
+        }
+
     }
 }

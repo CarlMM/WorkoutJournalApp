@@ -18,19 +18,19 @@ namespace WorkoutJournalWebApi.Controllers
     public class RoutineController : ControllerBase
     {
 
-        private readonly IRoutineService service;
+        private readonly IRoutineService routineService;
 
 
-        public RoutineController(IRoutineService service)
+        public RoutineController(IRoutineService routineService)
         {
-            this.service = service;
+            this.routineService = routineService;
         }
 
 
         [HttpGet]
         public async Task<IActionResult> GetAllRoutines()
         {
-            var result = await service.GetAllRoutinesAsync();
+            var result = await routineService.GetAllRoutinesAsync();
 
             return Ok(result);
         }
@@ -38,9 +38,24 @@ namespace WorkoutJournalWebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewRoutine(SetRoutineDto routineDto)
         {
-            await service.AddNewRoutine(routineDto);
+            await routineService.AddNewRoutine(routineDto);
 
             return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateRoutine(int id, SetRoutineDto routineToUpdate)
+        {
+            try
+            {
+                await routineService.UpdateRoutineAsync(id, routineToUpdate);
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
 

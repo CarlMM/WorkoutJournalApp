@@ -27,12 +27,22 @@ namespace WorkoutJournal.Infrastructure.Repository
             return await context.Routines.ToListAsync();
         }
 
+        public async Task<Routine> GetRoutineByIdAsync(int id)
+        {
+            return await context.Routines.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
 
         public async Task<Routine> AddNewRoutine(Routine newRoutine)
         {
             await context.Routines.AddAsync(newRoutine);
 
             return newRoutine;
+        }
+
+        public Routine UpdateRoutineAsync(Routine RoutineToUpdate)
+        {
+            return context.Routines.Update(RoutineToUpdate).Entity;
         }
 
         public async Task SaveChangesAsync()

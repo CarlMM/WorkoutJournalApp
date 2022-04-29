@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorkoutJournal.Domain.Dtos.WriteDto;
 using WorkoutJournal.Domain.Models;
 
 namespace WorkoutJournal.Infrastructure.Interfaces
@@ -12,9 +13,11 @@ namespace WorkoutJournal.Infrastructure.Interfaces
 
         Task<IEnumerable<Routine>> GetAllRoutinesAsync();
 
+        Task<Routine> GetRoutineByIdAsync(int id);
+
         Task<Routine> AddNewRoutine(Routine newRoutine);
 
-
+        Routine UpdateRoutineAsync(Routine RoutineToUpdate);
         Task SaveChangesAsync();
 
     }
