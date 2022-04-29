@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WorkoutJournal.Domain.Interfaces;
 using WorkoutJournal.Domain.Models;
+using WorkoutJournal.Domain.RepositoryInterfaces;
 using WorkoutJournal.Domain.Services;
 using WorkoutJournal.Infrastructure.Context;
 using WorkoutJournal.Infrastructure.Interfaces;
@@ -36,6 +37,8 @@ namespace WorkoutJournalWebApi
             services.AddDbContext<IWorkoutDBContext, WorkoutDBContext>();
             services.AddTransient<IRoutineRepository, RoutineRepository>();
             services.AddTransient<IRoutineService, RoutineService>();
+            services.AddTransient<IMuscleRepository, MuscleRepository>();
+            services.AddTransient<IMuscleService, MuscleService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

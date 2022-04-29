@@ -10,8 +10,6 @@ using WorkoutJournal.Domain.Dtos.WriteDto;
 
 namespace WorkoutJournalWebApi.Controllers
 {
-    
-
 
     [Route("api/[controller]")]
     [ApiController]
