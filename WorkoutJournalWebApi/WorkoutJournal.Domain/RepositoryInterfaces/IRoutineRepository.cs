@@ -18,6 +18,8 @@ namespace WorkoutJournal.Infrastructure.Interfaces
         Task<Routine> AddNewRoutine(Routine newRoutine);
 
         Routine UpdateRoutineAsync(Routine routineToUpdate);
+
+        Routine RemoveSpecificRoutine(Routine routineToDelete);
         Task SaveChangesAsync();
 
     }

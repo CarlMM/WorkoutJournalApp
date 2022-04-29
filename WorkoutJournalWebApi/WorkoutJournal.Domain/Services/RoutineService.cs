@@ -63,5 +63,15 @@ namespace WorkoutJournal.Domain.Services
             await routineRepository.SaveChangesAsync();
         }
 
+        public async Task RemoveSpecificRoutine(int id)
+        {
+            var routineToDelete = await routineRepository.GetRoutineByIdAsync(id);
+
+
+            routineRepository.RemoveSpecificRoutine(routineToDelete);
+
+            await routineRepository.SaveChangesAsync();
+        }
+
     }
 }

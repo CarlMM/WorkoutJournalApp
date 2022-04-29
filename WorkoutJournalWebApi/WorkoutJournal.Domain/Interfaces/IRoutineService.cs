@@ -20,5 +20,7 @@ namespace WorkoutJournal.Domain.Interfaces
 
         Task UpdateRoutineAsync(int id, SetRoutineDto routineDto);
 
+        Task RemoveSpecificRoutine(int id);
+
     }
 }

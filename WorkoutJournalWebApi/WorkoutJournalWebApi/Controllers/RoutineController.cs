@@ -26,7 +26,10 @@ namespace WorkoutJournalWebApi.Controllers
             this.routineService = routineService;
         }
 
-
+        /// <summary>
+        /// Get all routines
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllRoutines()
         {
@@ -64,6 +67,15 @@ namespace WorkoutJournalWebApi.Controllers
             {
                 return StatusCode(500);
             }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> RemoveSpecificRoutine(int id)
+        {
+            await routineService.RemoveSpecificRoutine(id);
+
+
+            return Ok();
         }
 
 

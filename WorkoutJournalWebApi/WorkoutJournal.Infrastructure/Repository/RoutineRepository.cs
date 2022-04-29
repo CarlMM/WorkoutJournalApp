@@ -45,6 +45,12 @@ namespace WorkoutJournal.Infrastructure.Repository
             return context.Routines.Update(routineToUpdate).Entity;
         }
 
+
+        public Routine RemoveSpecificRoutine(Routine routineToDelete)
+        {
+            return context.Routines.Remove(routineToDelete).Entity;
+        }
+
         public async Task SaveChangesAsync()
         {
             await context.SaveChangesAsync();
