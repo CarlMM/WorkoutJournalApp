@@ -35,6 +35,14 @@ namespace WorkoutJournalWebApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet("id/{id}")]
+        public async Task<IActionResult> GetRoutineById(int id)
+        {
+            var routine = await routineService.GetRoutineById(id);
+
+            return Ok(routine);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddNewRoutine(SetRoutineDto routineDto)
         {

@@ -30,6 +30,12 @@ namespace WorkoutJournal.Domain.Services
             return routines.ToList().ToRoutineDtoList();
         }
 
+        public async Task<RoutineDto> GetRoutineById(int id)
+        {
+            var specificRoutine = await routineRepository.GetRoutineByIdAsync(id);
+
+            return specificRoutine.ToRoutineDto();
+        }
 
         public async Task AddNewRoutine(SetRoutineDto newRoutine)
         {

@@ -40,9 +40,9 @@ namespace WorkoutJournal.Infrastructure.Repository
             return newRoutine;
         }
 
-        public Routine UpdateRoutineAsync(Routine RoutineToUpdate)
+        public Routine UpdateRoutineAsync(Routine routineToUpdate)
         {
-            return context.Routines.Update(RoutineToUpdate).Entity;
+            return context.Routines.Update(routineToUpdate).Entity;
         }
 
         public async Task SaveChangesAsync()

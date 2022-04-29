@@ -14,6 +14,8 @@ namespace WorkoutJournal.Domain.Interfaces
 
         Task<IEnumerable<RoutineDto>> GetAllRoutinesAsync();
 
+        Task<RoutineDto> GetRoutineById(int id);
+
         Task AddNewRoutine(SetRoutineDto newRoutine);
 
         Task UpdateRoutineAsync(int id, SetRoutineDto routineDto);
