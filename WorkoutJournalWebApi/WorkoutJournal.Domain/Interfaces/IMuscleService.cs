@@ -12,5 +12,7 @@ namespace WorkoutJournal.Domain.Interfaces
 
 
         Task<IEnumerable<MuscleDto>> GetAllMuscles();
+
+        Task<MuscleDto> GetMuscleById(int id);
     }
 }

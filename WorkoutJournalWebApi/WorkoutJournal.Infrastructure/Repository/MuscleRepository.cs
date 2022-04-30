@@ -25,5 +25,10 @@ namespace WorkoutJournal.Infrastructure.Repository
             return await context.Muscles.ToListAsync();
         }
 
+        public async Task<Muscle> GetMuscleByIdAsync(int id)
+        {
+            return await context.Muscles.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
     }
 }

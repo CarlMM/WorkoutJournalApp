@@ -12,5 +12,7 @@ namespace WorkoutJournal.Domain.RepositoryInterfaces
 
         Task<IEnumerable<Muscle>> GetAllMusclesAsync();
 
+        Task<Muscle> GetMuscleByIdAsync(int id);
+
     }
 }

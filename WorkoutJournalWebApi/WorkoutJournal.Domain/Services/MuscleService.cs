@@ -28,5 +28,15 @@ namespace WorkoutJournal.Domain.Services
             return muscles.ToList().ToMuscleDtoList();
         }
 
+        public async Task<MuscleDto> GetMuscleById(int id)
+        {
+            var specificMuscle = await muscleRepository.GetMuscleByIdAsync(id);
+
+            return specificMuscle.ToMuscleDto();
+
+
+
+        }
+
     }
 }
