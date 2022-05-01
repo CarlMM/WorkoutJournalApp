@@ -30,5 +30,21 @@ namespace WorkoutJournal.Infrastructure.Repository
             return await context.Muscles.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<Muscle> AddNewMuscle(Muscle muscleToAdd)
+        {
+            await context.Muscles.AddAsync(muscleToAdd);
+
+            return muscleToAdd;
+        }
+
+        public Muscle RemoveSpecificMuscle(Muscle muscleToDelete)
+        {
+            return context.Muscles.Remove(muscleToDelete).Entity;
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await context.SaveChangesAsync();
+        }
     }
 }

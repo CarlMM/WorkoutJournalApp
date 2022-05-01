@@ -14,5 +14,11 @@ namespace WorkoutJournal.Domain.RepositoryInterfaces
 
         Task<Muscle> GetMuscleByIdAsync(int id);
 
+        Task<Muscle> AddNewMuscle(Muscle muscleToAdd);
+
+        Muscle RemoveSpecificMuscle(Muscle muscleToRemove);
+
+        Task SaveChangesAsync();
+
     }
 }
