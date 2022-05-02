@@ -12,6 +12,10 @@ namespace WorkoutJournal.Domain.Interfaces
 
         Task<IEnumerable<ExerciseDto>> GetAllExercises();
 
+        Task<ExerciseDto> GetExerciseById(int id);
+
+        Task<IEnumerable<ExerciseDto>> GetExercisesByMuscleId(int id);
+
 
     }
 }

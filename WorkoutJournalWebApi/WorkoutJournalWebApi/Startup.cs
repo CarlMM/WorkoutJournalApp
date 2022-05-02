@@ -35,14 +35,19 @@ namespace WorkoutJournalWebApi
         {
 
             services.AddDbContext<IWorkoutDBContext, WorkoutDBContext>();
+
             services.AddTransient<IRoutineRepository, RoutineRepository>();
             services.AddTransient<IRoutineService, RoutineService>();
+
             services.AddTransient<IMuscleRepository, MuscleRepository>();
             services.AddTransient<IMuscleService, MuscleService>();
+
             services.AddTransient<IWeekdayService, WeekdayService>();
             services.AddTransient<IWeekdayRepository, WeekdayRepository>();
+
             services.AddTransient<IExerciseService, ExerciseService>();
             services.AddTransient<IExerciseRepository, ExerciseRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

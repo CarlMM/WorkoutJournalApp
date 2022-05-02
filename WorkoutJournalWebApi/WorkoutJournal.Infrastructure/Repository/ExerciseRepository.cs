@@ -26,10 +26,20 @@ namespace WorkoutJournal.Infrastructure.Repository
             return await context.Exercises.ToListAsync();
         }
 
+        public async Task<IEnumerable<Exercise>> GetExercisesByMuscleId(int id)
+        {
+
+            var exercisesByMuscleId = await context.Exercises.Where(e => e.MuscleId == id).ToListAsync();
+
+            return exercisesByMuscleId;
+        }
+
         public async Task<Exercise> GetMuscleByIdAsync(int id)
         {
             return await context.Exercises.FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        
 
         public async Task<Exercise> AddNewExercise(Exercise newExercise)
         {

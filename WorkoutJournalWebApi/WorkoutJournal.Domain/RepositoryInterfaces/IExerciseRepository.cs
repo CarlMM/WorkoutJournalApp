@@ -14,6 +14,8 @@ namespace WorkoutJournal.Domain.RepositoryInterfaces
 
         Task<Exercise> GetMuscleByIdAsync(int id);
 
+        Task<IEnumerable<Exercise>> GetExercisesByMuscleId(int id);
+
         Task<Exercise> AddNewExercise(Exercise newExercise);
 
         Exercise RemoveSpecific(Exercise exerciseToRemove);
