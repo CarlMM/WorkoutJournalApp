@@ -34,7 +34,7 @@ namespace WorkoutJournal.Infrastructure.Repository
             return exercisesByMuscleId;
         }
 
-        public async Task<Exercise> GetMuscleByIdAsync(int id)
+        public async Task<Exercise> GetExerciseByIdAsync(int id)
         {
             return await context.Exercises.FirstOrDefaultAsync(x => x.Id == id);
         }
@@ -48,11 +48,15 @@ namespace WorkoutJournal.Infrastructure.Repository
             return newExercise;
         }
 
-        public Exercise RemoveSpecific(Exercise exerciseToRemove)
+        public Exercise RemoveSpecificExercise(Exercise exerciseToRemove)
         {
             return context.Exercises.Remove(exerciseToRemove).Entity;
         }
 
+        public async Task SaveChangesAsync()
+        {
+            await context.SaveChangesAsync();
+        }
 
     }
 }

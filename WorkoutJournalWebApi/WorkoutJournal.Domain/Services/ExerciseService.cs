@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WorkoutJournal.Domain.Dtos.ReadDto;
+using WorkoutJournal.Domain.Dtos.WriteDto;
 using WorkoutJournal.Domain.Interfaces;
 using WorkoutJournal.Domain.Mapper;
+using WorkoutJournal.Domain.Models;
 using WorkoutJournal.Domain.RepositoryInterfaces;
 
 namespace WorkoutJournal.Domain.Services
@@ -30,7 +32,7 @@ namespace WorkoutJournal.Domain.Services
 
         public async Task<ExerciseDto> GetExerciseById(int id)
         {
-            var specificExercise = await exerciseRepository.GetMuscleByIdAsync(id);
+            var specificExercise = await exerciseRepository.GetExerciseByIdAsync(id);
 
             return specificExercise.ToExerciseDto();
         }
@@ -40,6 +42,23 @@ namespace WorkoutJournal.Domain.Services
             var exercisesByMuscleId = await exerciseRepository.GetExercisesByMuscleId(id);
 
             return exercisesByMuscleId.ToList().ToExerciseDtoList();
+        }
+
+        public async Task AddNewExercise(SetExerciseDto newExercise)
+        {
+            Exercise exerciseToAdd = newExercise.ToExercise();
+            await exerciseRepository.AddNewExercise(exerciseToAdd);
+            await exerciseRepository.SaveChangesAsync();
+        }
+
+        public async Task RemoveSpecificExercise(int id)
+        {
+            var exerciseToDelete = await exerciseRepository.GetExerciseByIdAsync(id);
+
+            exerciseRepository.RemoveSpecificExercise(exerciseToDelete);
+
+            await exerciseRepository.SaveChangesAsync();
+
         }
     }
 }
