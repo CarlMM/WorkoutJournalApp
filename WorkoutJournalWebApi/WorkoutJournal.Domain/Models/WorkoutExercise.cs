@@ -7,6 +7,20 @@ namespace WorkoutJournal.Domain.Models
 {
     public partial class WorkoutExercise
     {
+
+        public WorkoutExercise(int exerciseId, int reps, int sets, int weekdayId, int routineId)
+        {
+            ExerciseId = exerciseId;
+            RoutineId = routineId;
+            Sets = sets;
+            Reps = reps;
+            WeekdayId = weekdayId;
+
+        }
+
+        
+
+
         public int Id { get; set; }
         public int ExerciseId { get; set; }
         public int Reps { get; set; }
