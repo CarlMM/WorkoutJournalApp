@@ -18,9 +18,6 @@ namespace WorkoutJournal.Domain.Models
 
         }
 
-        
-
-
         public int Id { get; set; }
         public int ExerciseId { get; set; }
         public int Reps { get; set; }

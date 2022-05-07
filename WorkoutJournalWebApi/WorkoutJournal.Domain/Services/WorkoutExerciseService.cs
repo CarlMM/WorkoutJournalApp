@@ -23,7 +23,7 @@ namespace WorkoutJournal.Domain.Services
 
         public async Task<IEnumerable<WorkoutExerciseDto>> GetAllWorkoutExercises()
         {
-            var workoutExercises = await workoutExerciseRepository.GetAllWorkoutExercises();
+           var workoutExercises = await workoutExerciseRepository.GetAllWorkoutExercises();
 
             return workoutExercises.ToList().ToWorkoutExerciseDtoList();
         }

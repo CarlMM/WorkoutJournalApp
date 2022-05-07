@@ -17,7 +17,7 @@ namespace WorkoutJournal.Domain.Mapper
 
 
         internal static WorkoutExerciseDto ToWorkoutExerciseDto(this WorkoutExercise wE) =>
-            new WorkoutExerciseDto(wE.Id, wE.ExerciseId, wE.Reps, wE.Sets, wE.RoutineId, wE.WeekdayId);
+            new WorkoutExerciseDto(wE.Id, wE.ExerciseId, wE.Reps, wE.Sets, wE.Routine.Name, wE.Weekday.Dayname);
 
 
         internal static WorkoutExercise ToWorkoutExercise(this SetWorkoutExerciseDto dto) =>

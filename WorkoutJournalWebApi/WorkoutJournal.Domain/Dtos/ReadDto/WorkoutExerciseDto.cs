@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkoutJournal.Domain.Dtos.ReadDto
 {
-    public record WorkoutExerciseDto(int id, int exerciseId, int reps, int sets, int weekdayId, int routineId)
-    {
+    public record WorkoutExerciseDto(int id, int exerciseId, int reps, int sets, string routineName, string weekdayName)
+    {    
     }
 }
