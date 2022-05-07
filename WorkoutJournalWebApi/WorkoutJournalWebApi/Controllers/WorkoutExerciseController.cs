@@ -28,5 +28,22 @@ namespace WorkoutJournalWebApi.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult>GetSpecificWorkoutExercise(int id)
+        {
+            var result = await workoutExerciseService.GetWorkoutExerciseByIdAsync(id);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("workoutExerciseRoutineId/{workoutExerciseRoutineId}")]
+        public async Task<IActionResult> GetWorkoutExercisesByRoutineId(int workoutExerciseRoutineId)
+        {
+            var result = await workoutExerciseService.GetAllWorkoutExercisesByRoutineId(workoutExerciseRoutineId);
+
+            return Ok(result);
+        }
     }
 }

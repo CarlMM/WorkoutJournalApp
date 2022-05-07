@@ -14,6 +14,8 @@ namespace WorkoutJournal.Domain.RepositoryInterfaces
 
         Task<WorkoutExercise> GetWorkoutExerciseByIdAsync(int id);
 
+        Task<IEnumerable<WorkoutExercise>> GetAllWorkoutExercisesByRoutineId(int id);
+
 
     }
 }

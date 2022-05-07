@@ -28,5 +28,19 @@ namespace WorkoutJournal.Domain.Services
             return workoutExercises.ToList().ToWorkoutExerciseDtoList();
         }
 
+        public async Task<IEnumerable<WorkoutExerciseDto>> GetAllWorkoutExercisesByRoutineId(int id)
+        {
+            var listByRoutineId = await workoutExerciseRepository.GetAllWorkoutExercisesByRoutineId(id);
+
+            return listByRoutineId.ToList().ToWorkoutExerciseDtoList();
+        }
+
+        public async Task<WorkoutExerciseDto> GetWorkoutExerciseByIdAsync(int id)
+        {
+            var specificWorkoutExercise = await workoutExerciseRepository.GetWorkoutExerciseByIdAsync(id);
+
+            return specificWorkoutExercise.ToWorkoutExerciseDto();
+        }
+
     }
 }
