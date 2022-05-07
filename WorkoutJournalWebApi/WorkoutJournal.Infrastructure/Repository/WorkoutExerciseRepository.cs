@@ -23,7 +23,12 @@ namespace WorkoutJournal.Infrastructure.Repository
 
         public async Task<IEnumerable<WorkoutExercise>> GetAllWorkoutExercises()
         {
-            return await context.WorkoutExercises.Include(r => r.Routine).Include(w => w.Weekday).ToListAsync();
+            return await context.WorkoutExercises.Include(r => r.Routine).Include(w => w.Weekday).Include(e => e.Exercise).ToListAsync();
+        }
+
+        public async Task<WorkoutExercise> GetWorkoutExerciseByIdAsync(int id)
+        {
+            return await context.WorkoutExercises.FirstOrDefaultAsync(x => x.Id == id);
         }
 
 

@@ -30,7 +30,7 @@ namespace WorkoutJournal.Infrastructure.Repository
         {
 
             var exercisesByMuscleId = await context.Exercises.Where(e => e.MuscleId == id).ToListAsync();
-
+;
             return exercisesByMuscleId;
         }
 
