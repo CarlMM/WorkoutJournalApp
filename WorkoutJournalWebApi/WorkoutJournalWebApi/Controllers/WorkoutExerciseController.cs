@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WorkoutJournal.Domain.Dtos.WriteDto;
 using WorkoutJournal.Domain.Interfaces;
+using WorkoutJournal.Domain.CustomExceptions;
 
 namespace WorkoutJournalWebApi.Controllers
 {
@@ -44,6 +46,22 @@ namespace WorkoutJournalWebApi.Controllers
             var result = await workoutExerciseService.GetAllWorkoutExercisesByRoutineId(workoutExerciseRoutineId);
 
             return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewWorkoutExercise(SetWorkoutExerciseDto newWorkoutExercise)
+        {
+
+            try
+            {
+                await workoutExerciseService.AddWorkoutExercise(newWorkoutExercise);
+                return Ok(newWorkoutExercise);
+
+            }
+            catch (NotFoundException)
+            {
+                return StatusCode(204);
+            }
         }
     }
 }

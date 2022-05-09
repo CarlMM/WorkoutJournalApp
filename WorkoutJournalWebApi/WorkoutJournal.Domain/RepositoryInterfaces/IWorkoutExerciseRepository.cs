@@ -16,6 +16,10 @@ namespace WorkoutJournal.Domain.RepositoryInterfaces
 
         Task<IEnumerable<WorkoutExercise>> GetAllWorkoutExercisesByRoutineId(int id);
 
+        Task<WorkoutExercise> AddWorkoutExercise(WorkoutExercise newWorkoutExercise);
 
+
+
+        Task SaveChangesAsync();
     }
 }

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WorkoutJournal.Domain.Dtos.ReadDto;
+using WorkoutJournal.Domain.Dtos.WriteDto;
 using WorkoutJournal.Domain.Interfaces;
 using WorkoutJournal.Domain.Mapper;
+using WorkoutJournal.Domain.Models;
 using WorkoutJournal.Domain.RepositoryInterfaces;
 
 namespace WorkoutJournal.Domain.Services
@@ -40,6 +42,16 @@ namespace WorkoutJournal.Domain.Services
             var specificWorkoutExercise = await workoutExerciseRepository.GetWorkoutExerciseByIdAsync(id);
 
             return specificWorkoutExercise.ToWorkoutExerciseDto();
+        }
+
+        public async Task AddWorkoutExercise(SetWorkoutExerciseDto newWorkoutExercise)
+        {
+            WorkoutExercise workoutExerciseToAdd = newWorkoutExercise.ToWorkoutExercise();
+
+            await workoutExerciseRepository.AddWorkoutExercise(workoutExerciseToAdd);
+            await workoutExerciseRepository.SaveChangesAsync();
+
+
         }
 
     }

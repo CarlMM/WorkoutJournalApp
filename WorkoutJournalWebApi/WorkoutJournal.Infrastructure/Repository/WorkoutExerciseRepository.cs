@@ -38,6 +38,51 @@ namespace WorkoutJournal.Infrastructure.Repository
             return listByRoutineId;
         }
 
+        public async Task<WorkoutExercise> AddWorkoutExercise(WorkoutExercise newWorkoutExercise)
+        {
+
+            //CheckIfRoutineIdAndExerciseIdExists(newWorkoutExercise);
+
+            if (CheckIfRoutineIdAndExerciseIdAndWeekdayIdExists(newWorkoutExercise))
+            {
+                await context.WorkoutExercises.AddAsync(newWorkoutExercise);
+                return newWorkoutExercise;
+            }
+            else
+            {
+                throw new Exception("One of the id's does not exist");
+            }
+
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await context.SaveChangesAsync();
+        }
+
+
+
+        private bool CheckIfRoutineIdAndExerciseIdAndWeekdayIdExists(WorkoutExercise newWorkoutExercise)
+        {
+            var idExists = true;
+
+            var routineIdExists = context.Routines.FirstOrDefault(r => r.Id == newWorkoutExercise.RoutineId);
+            var exerciseIdExists = context.Exercises.FirstOrDefault(e => e.Id == newWorkoutExercise.ExerciseId);
+            var weekdayIdExists = context.Weekdays.FirstOrDefault(w => w.Id == newWorkoutExercise.WeekdayId);
+
+            if(routineIdExists == null || exerciseIdExists == null || weekdayIdExists == null)
+            {
+                idExists = false;
+                
+            }
+            else if (routineIdExists != null && exerciseIdExists != null && weekdayIdExists != null)
+            {
+                idExists = true;
+            }
+
+            return idExists;
+        }
+
 
     }
 }
