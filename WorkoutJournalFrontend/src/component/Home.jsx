@@ -40,6 +40,12 @@ function Home(){
 
     }
 
+
+    const myMuscleApi = () =>{
+        fetch('https://localhost:44314/api/Muscle')
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
   
     useEffect(() => {
       const interval = setInterval(() => {
@@ -57,6 +63,7 @@ function Home(){
           setCurrentNumberDay(weekdayNumber)
           const quote = whatQuoteToday(currentNumberDay)
           setDailyQuote(quote)
+          
       }, [currentNumberDay]);
 
     
@@ -67,6 +74,7 @@ function Home(){
                 <h1 className='homeScreenH1'>{currentDay}</h1>
                 <div className='clockDiv'>{clock}</div>
                 {dailyQuote}
+                <button onClick={myMuscleApi}>MuscleApi</button>
             </div>
         </div>
     )
