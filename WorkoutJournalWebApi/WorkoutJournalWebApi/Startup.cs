@@ -45,7 +45,7 @@ namespace WorkoutJournalWebApi
             services.AddTransient<IRoutineRepository, RoutineRepository>();
             services.AddTransient<IRoutineService, RoutineService>();
 
-            services.AddTransient<IMuscleRepository, MuscleRepository>();
+            services.AddTransient<IRepository<Muscle>, MuscleRepository>();
             services.AddTransient<IMuscleService, MuscleService>();
 
             services.AddTransient<IWeekdayService, WeekdayService>();

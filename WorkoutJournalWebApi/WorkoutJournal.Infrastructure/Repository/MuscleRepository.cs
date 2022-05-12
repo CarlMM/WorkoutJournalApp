@@ -10,7 +10,7 @@ using WorkoutJournal.Infrastructure.Context;
 
 namespace WorkoutJournal.Infrastructure.Repository
 {
-    public class MuscleRepository : IMuscleRepository
+    public class MuscleRepository : IRepository<Muscle>
     {
         private readonly IWorkoutDBContext context;
 
@@ -20,24 +20,24 @@ namespace WorkoutJournal.Infrastructure.Repository
             this.context = context;
         }
 
-        public async Task<IEnumerable<Muscle>> GetAllMusclesAsync()
+        public async Task<IEnumerable<Muscle>> GetAllItems()
         {
             return await context.Muscles.ToListAsync();
         }
 
-        public async Task<Muscle> GetMuscleByIdAsync(int id)
+        public async Task<Muscle> GetSpecificItem(int id)
         {
             return await context.Muscles.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<Muscle> AddNewMuscle(Muscle muscleToAdd)
+        public async Task<Muscle> AddNewItem(Muscle muscleToAdd)
         {
             await context.Muscles.AddAsync(muscleToAdd);
 
             return muscleToAdd;
         }
 
-        public Muscle RemoveSpecificMuscle(Muscle muscleToDelete)
+        public Muscle RemoveSpecificItem(Muscle muscleToDelete)
         {
             return context.Muscles.Remove(muscleToDelete).Entity;
         }

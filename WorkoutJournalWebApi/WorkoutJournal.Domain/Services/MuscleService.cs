@@ -15,9 +15,10 @@ namespace WorkoutJournal.Domain.Services
     public class MuscleService : IMuscleService
     {
 
-        private readonly IMuscleRepository muscleRepository;
+        //private readonly IMuscleRepository muscleRepository;
+        private readonly IRepository<Muscle> muscleRepository;
 
-       public MuscleService(IMuscleRepository muscleRepo)
+        public MuscleService(IRepository<Muscle> muscleRepo)
         {
             this.muscleRepository = muscleRepo;
         }
@@ -25,14 +26,16 @@ namespace WorkoutJournal.Domain.Services
 
         public async Task<IEnumerable<MuscleDto>> GetAllMuscles()
         {
-            var muscles = await muscleRepository.GetAllMusclesAsync();
+            //var muscles = await muscleRepository.GetAllMusclesAsync();
+            var muscles = await muscleRepository.GetAllItems();
 
             return muscles.ToList().ToMuscleDtoList();
         }
 
         public async Task<MuscleDto> GetMuscleById(int id)
         {
-            var specificMuscle = await muscleRepository.GetMuscleByIdAsync(id);
+            //var specificMuscle = await muscleRepository.GetMuscleByIdAsync(id);
+            var specificMuscle = await muscleRepository.GetSpecificItem(id);
 
             return specificMuscle.ToMuscleDto();
 
@@ -47,16 +50,19 @@ namespace WorkoutJournal.Domain.Services
             }
 
             Muscle muscleToAdd = newMuscle.ToMuscle();
-            await muscleRepository.AddNewMuscle(muscleToAdd);
+            //await muscleRepository.AddNewMuscle(muscleToAdd);
+            await muscleRepository.AddNewItem(muscleToAdd);
             await muscleRepository.SaveChangesAsync();
 
         }
 
         public async Task RemoveSpecificMuscle(int id)
         {
-            var muscleToDelete = await muscleRepository.GetMuscleByIdAsync(id);
+            //var muscleToDelete = await muscleRepository.GetMuscleByIdAsync(id);
+            var muscleToDelete = await muscleRepository.GetSpecificItem(id);
 
-            muscleRepository.RemoveSpecificMuscle(muscleToDelete);
+            //muscleRepository.RemoveSpecificMuscle(muscleToDelete);
+            muscleRepository.RemoveSpecificItem(muscleToDelete);
 
             await muscleRepository.SaveChangesAsync();
         }

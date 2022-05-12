@@ -7,17 +7,19 @@ using WorkoutJournal.Domain.Models;
 
 namespace WorkoutJournal.Domain.RepositoryInterfaces
 {
+
+    //Generic interface, for testing
     public interface IRepository<T>
     {
-        //Task <IEnumerable<T>> GetAllItems();
+        Task <IEnumerable<T>> GetAllItems();
 
-        //Task<T> GetSpecificItem(int id);
+        Task<T> GetSpecificItem(int id);
 
-        //Task<T> AddNewItem(T itemToAdd);
+        Task<T> AddNewItem(T itemToAdd);
 
-        //Task<T> RemoveSpecificItem(T itemToRemove);
+        T RemoveSpecificItem(T itemToRemove);
 
-        //Task SaveChangesAsync();
+        Task SaveChangesAsync();
 
     }
 }
