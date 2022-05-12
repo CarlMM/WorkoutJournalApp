@@ -21,7 +21,12 @@ namespace WorkoutJournal.Infrastructure.Repository
             this.context = context;
         }
 
-        public async Task<IEnumerable<Exercise>> GetAllExerciseAsync()
+        //public async Task<IEnumerable<Exercise>> GetAllExerciseAsync()
+        //{
+        //    return await context.Exercises.ToListAsync();
+        //}
+
+        public async Task<IEnumerable<Exercise>> GetAllItems()
         {
             return await context.Exercises.ToListAsync();
         }
@@ -34,21 +39,28 @@ namespace WorkoutJournal.Infrastructure.Repository
             return exercisesByMuscleId;
         }
 
-        public async Task<Exercise> GetExerciseByIdAsync(int id)
+        
+
+        //public async Task<Exercise> GetExerciseByIdAsync(int id)
+        //{
+        //    return await context.Exercises.FirstOrDefaultAsync(x => x.Id == id);
+        //}
+
+        public async Task<Exercise> GetSpecificItem(int id)
         {
             return await context.Exercises.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        
 
-        public async Task<Exercise> AddNewExercise(Exercise newExercise)
+
+        public async Task<Exercise> AddNewItem(Exercise newExercise)
         {
             await context.Exercises.AddAsync(newExercise);
 
             return newExercise;
         }
 
-        public Exercise RemoveSpecificExercise(Exercise exerciseToRemove)
+        public Exercise RemoveSpecificItem(Exercise exerciseToRemove)
         {
             return context.Exercises.Remove(exerciseToRemove).Entity;
         }

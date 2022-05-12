@@ -10,15 +10,15 @@ namespace WorkoutJournal.Domain.RepositoryInterfaces
     public interface IMuscleRepository
     {
 
-        Task<IEnumerable<Muscle>> GetAllMusclesAsync();
+        //Task<IEnumerable<Muscle>> GetAllMusclesAsync();
 
-        Task<Muscle> GetMuscleByIdAsync(int id);
+        //Task<Muscle> GetMuscleByIdAsync(int id);
 
-        Task<Muscle> AddNewMuscle(Muscle muscleToAdd);
+        //Task<Muscle> AddNewMuscle(Muscle muscleToAdd);
 
-        Muscle RemoveSpecificMuscle(Muscle muscleToRemove);
+        //Muscle RemoveSpecificMuscle(Muscle muscleToRemove);
 
-        Task SaveChangesAsync();
+        //Task SaveChangesAsync();
 
     }
 }

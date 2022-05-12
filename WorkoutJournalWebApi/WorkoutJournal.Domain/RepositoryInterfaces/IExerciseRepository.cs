@@ -7,19 +7,19 @@ using WorkoutJournal.Domain.Models;
 
 namespace WorkoutJournal.Domain.RepositoryInterfaces
 {
-    public interface IExerciseRepository
+    public interface IExerciseRepository : IRepository<Exercise>
     {
 
-        Task<IEnumerable<Exercise>> GetAllExerciseAsync();
+        //Task<IEnumerable<Exercise>> GetAllExerciseAsync();
 
-        Task<Exercise> GetExerciseByIdAsync(int id);
+        //Task<Exercise> GetExerciseByIdAsync(int id);
 
         Task<IEnumerable<Exercise>> GetExercisesByMuscleId(int id);
 
-        Task<Exercise> AddNewExercise(Exercise newExercise);
+        //Task<Exercise> AddNewExercise(Exercise newExercise);
 
-        Exercise RemoveSpecificExercise(Exercise exerciseToRemove);
+        //Exercise RemoveSpecificExercise(Exercise exerciseToRemove);
 
-        Task SaveChangesAsync();
+        //Task SaveChangesAsync();
     }
 }
