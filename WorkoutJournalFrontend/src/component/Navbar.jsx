@@ -10,6 +10,7 @@ import * as FaIcons from 'react-icons/fa'
 
 import Home from './Home'
 import MyProfilePage from './MyProfile/MyProfilePage'
+import MyRoutines from './MyProfile/MyRoutines'
 import MuscleGroups from './MusclePages/MuscleGroups'
 import SpecificMuscle from './MusclePages/SpecificMuscle'
 import MyExercises from './MyProfile/MyExercises'
@@ -73,7 +74,7 @@ function Navbar(props) {
                 <Link to="/myExercises">My Exercises</Link>
               </li>
               <li className="nav-text">
-                <Link to="/">My Routines</Link>
+                <Link to="/myRoutines">My Routines</Link>
               </li>
                 <button onClick={() => setShowProfile(false)}>Log out</button>
               </li>
@@ -99,6 +100,9 @@ function Navbar(props) {
             <SpecificMuscle sMuscle={props.sMuscle}
               items={props.items}
               addExercise={props.addExercise} />
+          </Route>
+          <Route exact path="/myRoutines">
+            <MyRoutines />
           </Route>
         </Switch>
       </div>
