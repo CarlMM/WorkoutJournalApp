@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import '../cssFolder/Home-style.css'
+import useFetch from '../ApiStore/useFetch';
 
 const weekDays = [
     "Söndag", 
@@ -40,13 +41,6 @@ function Home(){
 
     }
 
-
-    const myMuscleApi = () =>{
-        fetch('https://localhost:44314/api/Muscle')
-        .then(response => response.json())
-        .then(data => console.log(data));
-    }
-  
     useEffect(() => {
       const interval = setInterval(() => {
         setCounter((<p>It is {new Date().toLocaleTimeString()}.</p>));
@@ -74,7 +68,6 @@ function Home(){
                 <h1 className='homeScreenH1'>{currentDay}</h1>
                 <div className='clockDiv'>{clock}</div>
                 {dailyQuote}
-                <button onClick={myMuscleApi}>MuscleApi</button>
             </div>
         </div>
     )

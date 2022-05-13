@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom"
 
 import SMuscleList from "./SMuscleList";
 import CustomButton from "../CustomButton";
+import useFetch from "../../ApiStore/useFetch";
 
 
 import '../../cssFolder/SpecificMuscle-style.css'
@@ -11,12 +12,16 @@ import '../../cssFolder/SpecificMuscle-style.css'
 function SpecificMuscle(props) {
 
     let { id } = useParams();
-    const newTitle = props.items.filter(t => t.id == id)
-    const currentMuscle = newTitle.map(s => s.title)
+    //const newTitle = props.items.filter(t => t.id == id)
+    //const currentMuscle = newTitle.map(s => s.title)
+
+    const {data, loading, error} = useFetch(`https://localhost:44314/${id}`)
+
+    if(loading) return <h1>Loading..</h1>
 
     return (
         <div>
-            <h1>Muscle: {currentMuscle}</h1>
+            {/* <h1>Muscle: {currentMuscle}</h1> */}
             <Link to="/muscles">
                 <CustomButton 
                 className = "addExerciseBtn"
@@ -25,25 +30,20 @@ function SpecificMuscle(props) {
             <h2>Muscle Details</h2>
             <div className="mainDivSMuscle">
                 <ul className="muscleUl">
-                    {props.sMuscle.filter(s => s.muscleCateogryId == id)
-                        .map(s =>
-                        (
+                    {
+                    data?.map((d) =>
                             <div className="sMuscleInnerDiv">
                                 <div>
                                     <SMuscleList
-                                        key={s.id}
-                                        title={s.title}
-                                        id={s.id}
+                                        key={d.id}
+                                        title={d.name}
+                                        id={d.id}
                                         addExercise={props.addExercise}
                                     />
                                 </div>
-                                {/* <div>
-                                    <button className="addExerciseBtn" onClick={() => { props.addExercise(s); isAdded(s.id); }}>
-                                        <p>{buttonText}</p>
-                                    </button>
-                                </div> */}
                             </div>
-                        ))}
+                        )
+                        }
                 </ul>
             </div>
         </div>
