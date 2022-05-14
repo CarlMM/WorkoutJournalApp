@@ -14,6 +14,7 @@ function useFetch(url){
         setLoading(true)
         axios.get(url).then((response) => {
             setData(response.data);
+            console.log('inne i useFetch')
         }).catch((err) => {
            setError(err); 
         }).finally(() => {
