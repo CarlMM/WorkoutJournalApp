@@ -14,30 +14,34 @@ import {
 const url = "https://localhost:44314/api/Routine"
 function MyRoutines(){
 
-
-    const{data, loading, error} = useFetch(url)
+    const{data, loading, error, setData} = useFetch(url)
     const [name, setRoutineName] = useState("")
 
-   const updateMyRoutineList = async () =>{
-        data = await axios.get(url).then(response);
+   const updateMyRoutineList = () =>{
+    axios.get(url).then((response) => {
+        setData(response.data)
+        console.log('inne i useFetch')
+    })
    }
     
     const postNewRoutine = async (e) =>{
-        e.preventDefault();
+        e.preventDefault()
         console.log(name)
-       
-         try{
-             const response = await axios.post(url, {name});
-             console.log(response.data)
-            
+        try{
+            const response = await axios.post(url, {name});
+            console.log(response)
+            updateMyRoutineList()
         }catch(error){
              console.log(error.response)
          }
     }
 
-    //  useEffect(() => {
-
-    //  }, [data])
+      //useEffect(() => {
+        //   console.log('useeffect routine')
+        //   console.log(theApiList)
+        //     setTheApiList(data)
+        //     console.log(theApiList)
+      //}, [])
 
     return (
         <div>
