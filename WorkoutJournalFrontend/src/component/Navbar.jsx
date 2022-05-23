@@ -11,6 +11,7 @@ import * as FaIcons from 'react-icons/fa'
 import Home from './Home'
 import MyProfilePage from './MyProfile/MyProfilePage'
 import MyRoutines from './MyProfile/MyRoutines'
+import SpecificRoutine from './MyProfile/SpecificRoutine'
 import MuscleGroups from './MusclePages/MuscleGroups'
 import SpecificMuscle from './MusclePages/SpecificMuscle'
 import MyExercises from './MyProfile/MyExercises'
@@ -103,6 +104,9 @@ function Navbar(props) {
           </Route>
           <Route exact path="/myRoutines">
             <MyRoutines />
+          </Route>
+          <Route path="/myRoutines/:id">
+            <SpecificRoutine />
           </Route>
         </Switch>
       </div>

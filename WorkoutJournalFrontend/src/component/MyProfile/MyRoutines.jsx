@@ -56,7 +56,7 @@ function MyRoutines(){
                     data.map((mr) => 
                     <div>
                             <li key={mr.id}>
-                                <Link>{mr.name}</Link>
+                                <Link to={`/myRoutines/${mr.id}`}>{mr.name}</Link>
                             </li>
                         </div>
                     )
